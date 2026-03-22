@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: https://veloxstudio.co
+Sitemap: https://veloxstudio.co/sitemap.xml

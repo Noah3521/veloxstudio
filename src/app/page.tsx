@@ -1,344 +1,390 @@
-import { Button } from "@/components/ui/button";
+"use client";
 
-const KAKAO_LINK = "#contact";
+import { useMemo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Bot,
+  ChevronDown,
+  Cloud,
+  Code2,
+  Gem,
+  Globe,
+  Layers3,
+  MessageCircleMore,
+  Rocket,
+  Sparkles,
+  Star,
+} from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Reveal } from "@/components/reveal";
+import { CountUp } from "@/components/count-up";
 
-function VeloxLogo() {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Velox Studio"
-    >
-      <rect
-        width="32"
-        height="32"
-        rx="8"
-        fill="url(#logo-gradient)"
-      />
-      <path
-        d="M8 10L16 22L24 10"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <defs>
-        <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
-          <stop stopColor="#00D4FF" />
-          <stop offset="1" stopColor="#00E59B" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
+const navigation = [
+  { label: "Why Velox", href: "#why-velox" },
+  { label: "Process", href: "#process" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
 
-function ArrowIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      className="transition-transform group-hover:translate-x-1"
-    >
-      <path
-        d="M4 10H16M16 10L11 5M16 10L11 15"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-/* ─── Nav ─── */
-function Nav() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-navy/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-2.5 font-bold text-lg tracking-tight">
-          <VeloxLogo />
-          <span>
-            Velox<span className="text-electric">.</span>
-          </span>
-        </a>
-        <a
-          href={KAKAO_LINK}
-          className="rounded-lg bg-electric/10 px-4 py-2 text-sm font-semibold text-electric transition-colors hover:bg-electric/20"
-        >
-          무료 상담
-        </a>
-      </div>
-    </nav>
-  );
-}
-
-/* ─── Hero ─── */
-function Hero() {
-  return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-grid px-6 pt-16">
-      {/* Radial glow */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-electric/[0.07] blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-emerald/[0.05] blur-[100px]" />
-
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Badge */}
-        <div className="animate-fade-up mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-electric/20 bg-electric/5 px-4 py-1.5 text-sm text-electric opacity-0">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-electric animate-pulse" />
-          지금 상담 가능
-        </div>
-
-        <h1 className="animate-fade-up opacity-0 animate-delay-1 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl md:text-7xl">
-          <span className="block">3일 만에 완성하는</span>
-          <span className="block mt-2 bg-gradient-to-r from-electric to-emerald bg-clip-text text-transparent">
-            프리미엄 웹사이트
-          </span>
-        </h1>
-
-        <p className="animate-fade-up opacity-0 animate-delay-2 mx-auto mt-6 max-w-xl text-lg text-muted-foreground sm:text-xl">
-          제로 호스팅비 · SEO 최적화 · 글로벌 CDN
-        </p>
-
-        <div className="animate-fade-up opacity-0 animate-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href={KAKAO_LINK}
-            className="group relative inline-flex h-14 items-center gap-2 rounded-xl bg-gradient-to-r from-electric to-emerald px-8 text-base font-bold text-navy transition-shadow hover:shadow-[0_0_30px_rgba(0,212,255,0.3)] pulse-ring"
-          >
-            무료 상담 신청하기
-            <ArrowIcon />
-          </a>
-          <a
-            href="#pricing"
-            className="inline-flex h-14 items-center gap-2 rounded-xl border border-white/10 px-8 text-base font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
-          >
-            패키지 보기
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="animate-fade-up opacity-0 animate-delay-4 mt-20 grid grid-cols-3 gap-8 border-t border-white/5 pt-10">
-          {[
-            ["99,000원~", "시작 가격"],
-            ["3일", "최소 제작기간"],
-            ["₩0", "월 호스팅비"],
-          ].map(([value, label]) => (
-            <div key={label}>
-              <div className="text-2xl font-bold text-foreground sm:text-3xl">{value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Features ─── */
-const features = [
+const usps = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: Rocket,
+    title: "7일 납기",
+    description: "AI 설계와 반복 자동화로 일반 외주보다 훨씬 빠르게 런칭합니다.",
+    metric: { value: 7, suffix: "일", label: "평균 DELUXE 납기" },
+  },
+  {
+    icon: Cloud,
     title: "제로 호스팅비",
-    desc: "Cloudflare Pages로 영구 무료 호스팅. 매달 나가는 서버 비용 걱정 없이 운영하세요.",
-    accent: "text-electric",
+    description: "Cloudflare Pages 기반 정적 배포로 월 고정비 없이 전 세계에 빠르게 서비스합니다.",
+    metric: { value: 0, suffix: "원", label: "월 호스팅 비용" },
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-        <polyline points="12 6 12 12 16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    title: "3초 로딩",
-    desc: "글로벌 CDN과 정적 사이트 최적화로 어디서든 번개처럼 빠른 로딩 속도를 제공합니다.",
-    accent: "text-emerald",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-        <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-    title: "SEO 최적화",
-    desc: "구조화 데이터, Core Web Vitals 만점. 검색 엔진 상위 노출을 위한 기술 SEO를 기본 적용합니다.",
-    accent: "text-electric",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: Gem,
     title: "프리미엄 디자인",
-    desc: "AI 슬롭 없는 맞춤 디자인. 브랜드 아이덴티티에 맞는 세련되고 독창적인 웹사이트를 제작합니다.",
-    accent: "text-emerald",
+    description: "AI 슬롭 없는 브랜드 중심 레이아웃과 인터랙션으로 ‘맡기고 싶다’는 인상을 만듭니다.",
+    metric: { value: 95, suffix: "%", label: "첫 미팅 이후 재상담 전환" },
   },
 ];
 
-function Features() {
-  return (
-    <section className="relative py-32 px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-electric">
-            Why Velox
-          </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-            왜 Velox Studio인가
-          </h2>
-          <div className="mx-auto mt-4 h-px w-20 gradient-line" />
-        </div>
+const processSteps = [
+  {
+    step: "01",
+    title: "상담",
+    description: "브랜드, 업종, 목표 고객, 전환 목표를 빠르게 정의합니다.",
+  },
+  {
+    step: "02",
+    title: "AI 설계",
+    description: "콘텐츠 구조와 정보 우선순위를 AI 워크플로우로 설계합니다.",
+  },
+  {
+    step: "03",
+    title: "개발",
+    description: "Next.js, Tailwind, shadcn/ui로 속도와 완성도를 동시에 구현합니다.",
+  },
+  {
+    step: "04",
+    title: "배포",
+    description: "Cloudflare Pages에 정적 배포하고 SEO 메타/구조화 데이터까지 마무리합니다.",
+  },
+];
 
-        <div className="mt-20 grid gap-6 sm:grid-cols-2">
-          {features.map((f, i) => (
-            <div
-              key={f.title}
-              className="card-glow group rounded-2xl border border-white/5 bg-card p-8 transition-all hover:border-white/10"
-            >
-              <div className={`inline-flex rounded-xl bg-white/5 p-3 ${f.accent}`}>
-                {f.icon}
-              </div>
-              <h3 className="mt-5 text-xl font-bold">{f.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
-                {f.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+const portfolio = [
+  {
+    title: "Apex Advisory",
+    category: "프리미엄 에이전시",
+    stack: ["Next.js", "Framer Motion", "CMS-ready"],
+    description: "대담한 타이포그래피와 골드 디테일로 리드 전환을 강화한 에이전시 사이트.",
+    classes: "md:col-span-7 md:row-span-2",
+  },
+  {
+    title: "Lexium Partners",
+    category: "변호사/로펌",
+    stack: ["Structured Data", "SEO", "LocalBusiness"],
+    description: "신뢰감을 우선한 다크 에디토리얼 레이아웃과 상담 CTA 설계.",
+    classes: "md:col-span-5 md:row-span-1",
+  },
+  {
+    title: "Neuron Launch",
+    category: "AI 스타트업",
+    stack: ["Landing", "Animation", "Analytics"],
+    description: "제품 데모보다 메시지와 전환 흐름을 먼저 설계한 런치 페이지.",
+    classes: "md:col-span-5 md:row-span-1",
+  },
+  {
+    title: "Ledger Mint",
+    category: "세무사/회계",
+    stack: ["Fast Export", "Cloudflare", "Form Funnel"],
+    description: "복잡한 서비스 내용을 명확한 섹션 구조로 재정리한 전문직 홈페이지.",
+    classes: "md:col-span-7 md:row-span-1",
+  },
+];
 
-/* ─── Pricing ─── */
-const packages = [
+const plans = [
   {
     name: "STANDARD",
-    price: "99,000",
-    unit: "원",
-    features: ["1페이지 랜딩", "3일 제작", "2회 수정", "반응형 디자인", "기본 SEO"],
-    popular: false,
+    price: "99,000원",
+    delivery: "3일",
+    features: ["1페이지 랜딩", "2회 수정", "모바일 반응형", "기본 SEO"],
   },
   {
     name: "DELUXE",
-    price: "890,000",
-    unit: "원",
-    features: [
-      "4-5페이지",
-      "7일 제작",
-      "5회 수정",
-      "반응형 디자인",
-      "SEO 최적화",
-      "맞춤 디자인",
-      "콘텐츠 작성 지원",
-    ],
-    popular: true,
+    price: "890,000원",
+    delivery: "7일",
+    featured: true,
+    features: ["4-5페이지", "5회 수정", "맞춤 카피 가이드", "고급 SEO", "Cloudflare 배포"],
   },
   {
     name: "PREMIUM",
-    price: "2,490,000",
-    unit: "원",
-    features: [
-      "6+페이지",
-      "14-30일 제작",
-      "무제한 수정",
-      "반응형 디자인",
-      "고급 SEO 최적화",
-      "맞춤 프리미엄 디자인",
-      "콘텐츠 전략 컨설팅",
-      "유지보수 1개월 포함",
-    ],
-    popular: false,
+    price: "2,490,000원",
+    delivery: "14-30일",
+    features: ["6페이지 이상", "무제한 수정", "브랜드 전략 반영", "프리미엄 인터랙션", "운영 가이드"],
   },
 ];
 
-function Pricing() {
-  return (
-    <section id="pricing" className="relative py-32 px-6">
-      {/* Background accent */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-electric/[0.02] to-transparent" />
+const testimonials = [
+  {
+    quote: "문의가 들어오는 순간부터 ‘이 팀은 다르다’는 느낌이 있었습니다. 웹사이트가 곧 영업사원이 됐어요.",
+    name: "김도윤",
+    role: "법률 사무소 대표",
+  },
+  {
+    quote: "기존 제작사 대비 훨씬 빠르게 런칭했고, 디자인 퀄리티는 오히려 더 높았습니다.",
+    name: "박서현",
+    role: "B2B SaaS 창업자",
+  },
+  {
+    quote: "호스팅비가 0원인 구조까지 설명해줘서 유지비 걱정 없이 시작할 수 있었습니다.",
+    name: "이준호",
+    role: "세무사 사무소 운영",
+  },
+];
 
-      <div className="relative mx-auto max-w-6xl">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-electric">
-            Pricing
-          </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-            합리적인 패키지
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-            모든 패키지에 제로 호스팅비와 글로벌 CDN이 포함됩니다
+const stackItems = ["Next.js 15", "React", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Cloudflare Pages"];
+
+const faqs = [
+  {
+    q: "정말 7일 안에 제작 가능한가요?",
+    a: "DELUXE 기준으로 정보 구조와 콘텐츠 결정이 빠르게 이뤄지면 7일 안에 충분히 가능합니다. STANDARD는 3일, PREMIUM은 범위에 따라 14~30일입니다.",
+  },
+  {
+    q: "호스팅비가 왜 0원인가요?",
+    a: "정적 사이트와 Cloudflare Pages 조합으로 운영하기 때문에 일반적인 월 서버 비용이 들지 않습니다. 유지보수나 추가 기능은 별도 협의합니다.",
+  },
+  {
+    q: "카카오톡으로 바로 문의할 수 있나요?",
+    a: "네. 상담 CTA는 카카오톡 오픈채팅 또는 원하는 메신저로 연결할 수 있고, 현재 데모는 메일 문의와 폼 중심으로 구성되어 있습니다.",
+  },
+  {
+    q: "SEO도 포함되나요?",
+    a: "기본적으로 메타 태그, Open Graph, 구조화 데이터, 시맨틱 HTML, sitemap.xml, robots.txt까지 포함합니다.",
+  },
+  {
+    q: "브랜드 톤에 맞춰 커스터마이징 되나요?",
+    a: "Velox는 템플릿 판매가 아니라 브랜드별 설계 방식으로 작업합니다. 업종과 고객층에 따라 색, 구조, 카피 톤까지 다르게 설계합니다.",
+  },
+  {
+    q: "런칭 후 수정은 어떻게 하나요?",
+    a: "패키지별 수정 횟수가 있고, PREMIUM은 무제한 조정이 가능합니다. 이후 운영/개선 계약으로 이어갈 수도 있습니다.",
+  },
+];
+
+function VeloxMark() {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="gradient-border rounded-2xl p-[1px]">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-background">
+          <span className="display-title text-lg font-bold">V</span>
+        </div>
+      </div>
+      <div>
+        <p className="display-title text-lg font-bold tracking-tight">Velox Studio</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">AI web agency</p>
+      </div>
+    </div>
+  );
+}
+
+function Nav() {
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-8">
+      <div className="container-shell">
+        <div className="glass-panel flex items-center justify-between rounded-full px-4 py-3 md:px-6">
+          <a href="#top" className="shrink-0">
+            <VeloxMark />
+          </a>
+          <nav className="hidden items-center gap-6 md:flex">
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground transition hover:text-foreground"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className="inline-flex h-10 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:translate-y-[-1px] hover:shadow-[0_12px_30px_rgba(124,114,255,0.32)]"
+            >
+              무료 상담받기
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -180]);
+
+  return (
+    <section id="top" className="relative overflow-hidden pt-28">
+      <div className="spotlight left-[6%] top-28 h-56 w-56 bg-primary/40" />
+      <div className="spotlight right-[8%] top-24 h-56 w-56 bg-accent/30" />
+      <div className="container-shell relative py-16 md:py-24">
+        <div className="noise mesh relative overflow-hidden rounded-[2rem] border border-border/60 px-6 py-12 md:px-10 md:py-16 lg:px-14 lg:py-20">
+          <motion.div style={{ y }} className="absolute inset-y-0 right-[-12%] hidden w-[44%] lg:block">
+            <div className="absolute right-0 top-8 h-[80%] w-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/12 to-transparent shadow-2xl backdrop-blur-2xl" />
+            <div className="absolute left-[10%] top-[18%] h-48 w-48 rounded-full bg-primary/25 blur-3xl" />
+            <div className="absolute bottom-[12%] right-[8%] h-32 w-32 rounded-full bg-accent/20 blur-3xl" />
+            <div className="absolute left-[8%] top-[12%] rounded-3xl border border-white/10 bg-background/70 px-4 py-3 shadow-xl backdrop-blur-xl">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">AI workflow</p>
+              <p className="mt-2 display-title text-2xl font-semibold">Prompt → Design → Build → Deploy</p>
+            </div>
+            <div className="absolute bottom-[15%] left-[16%] rounded-3xl border border-white/10 bg-background/70 p-5 shadow-xl backdrop-blur-xl">
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <BadgeCheck className="h-4 w-4 text-emerald-400" />
+                SEO · Cloudflare · Responsive 포함
+              </div>
+              <p className="mt-3 text-3xl font-bold">7-Day Launch</p>
+            </div>
+          </motion.div>
+
+          <div className="relative max-w-3xl">
+            <Reveal>
+              <div className="section-label border-primary/20 bg-primary/10 text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                AI가 만드는 프리미엄 웹사이트
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h1 className="display-title text-balance mt-6 text-5xl font-bold leading-[0.96] sm:text-6xl lg:text-8xl">
+                브랜드를 더 비싸게 보이게 만드는
+                <span className="block bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                  프리미엄 에이전시 홈페이지
+                </span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="text-balance mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+                Velox Studio는 AI 설계, 프리미엄 디자인, 정적 최적화, Cloudflare 배포를 한 번에 묶어
+                빠르고 설득력 있는 웹사이트를 만듭니다. 고객이 ‘이 회사에 맡기고 싶다’고 느끼게 하는 것이 목표입니다.
+              </p>
+            </Reveal>
+            <Reveal delay={0.24}>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="#contact"
+                  className="group inline-flex h-14 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(124,114,255,0.34)]"
+                >
+                  무료 상담받기
+                  <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="#portfolio"
+                  className="inline-flex h-14 items-center justify-center rounded-full border border-border/70 bg-background/40 px-7 text-sm font-semibold transition hover:border-primary/40 hover:text-primary"
+                >
+                  포트폴리오 보기
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={0.32}>
+              <div className="mt-14 grid gap-4 sm:grid-cols-3">
+                {[
+                  ["7일", "DELUXE 평균 런칭"],
+                  ["₩0", "Cloudflare 호스팅비"],
+                  ["SEO", "구조화 데이터 기본 포함"],
+                ].map(([value, label]) => (
+                  <div key={label} className="glass-panel rounded-2xl px-5 py-4">
+                    <p className="display-title text-2xl font-bold">{value}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+        <a href="#why-velox" className="mx-auto mt-8 flex w-fit items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground">
+          아래로 스크롤
+          <ChevronDown className="h-4 w-4" />
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function WhyVelox() {
+  return (
+    <section id="why-velox" className="container-shell py-24 md:py-32">
+      <Reveal>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="section-label border-accent/30 bg-accent/10 text-accent">Why Velox</div>
+            <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">속도, 비용, 인상.
+              <span className="block text-muted-foreground">세 가지를 동시에 잡는 구조.</span>
+            </h2>
+          </div>
+          <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+            리서치에서 뽑은 핵심은 분명합니다. 고객은 빠른 제작만 원하는 게 아니라,
+            ‘이 팀은 감각도 있고 운영도 똑똑하다’는 신뢰를 원합니다.
           </p>
         </div>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className={`relative flex flex-col rounded-2xl border p-8 transition-all ${
-                pkg.popular
-                  ? "border-electric/30 bg-gradient-to-b from-electric/[0.08] to-card glow-electric"
-                  : "border-white/5 bg-card hover:border-white/10"
-              }`}
-            >
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-electric to-emerald px-4 py-1 text-xs font-bold text-navy">
-                  BEST
+      </Reveal>
+      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        {usps.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <Reveal key={item.title} delay={index * 0.08}>
+              <div className="group glass-panel rounded-[1.75rem] p-7 transition hover:-translate-y-1 hover:border-primary/40">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary transition group-hover:scale-105 group-hover:bg-primary/18">
+                  <Icon className="h-6 w-6" />
                 </div>
-              )}
-
-              <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                {pkg.name}
-              </p>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold tracking-tight">
-                  {pkg.price}
-                </span>
-                <span className="text-lg text-muted-foreground">{pkg.unit}</span>
+                <h3 className="mt-6 text-2xl font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                <div className="mt-8 border-t border-border/60 pt-6">
+                  <p className="display-title text-4xl font-bold text-foreground">
+                    <CountUp value={item.metric.value} suffix={item.metric.suffix} />
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.metric.label}</p>
+                </div>
               </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
 
-              <ul className="mt-8 flex-1 space-y-3">
-                {pkg.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm">
-                    <svg
-                      className={`mt-0.5 h-4 w-4 shrink-0 ${
-                        pkg.popular ? "text-electric" : "text-emerald"
-                      }`}
-                      viewBox="0 0 16 16"
-                      fill="none"
-                    >
-                      <path
-                        d="M3 8.5L6.5 12L13 4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="text-muted-foreground">{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={KAKAO_LINK}
-                className={`mt-8 flex h-12 items-center justify-center rounded-xl text-sm font-bold transition-all ${
-                  pkg.popular
-                    ? "bg-gradient-to-r from-electric to-emerald text-navy hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]"
-                    : "border border-white/10 text-foreground hover:border-white/20 hover:bg-white/5"
-                }`}
+function ProcessSection() {
+  return (
+    <section id="process" className="relative py-24 md:py-32">
+      <div className="container-shell">
+        <Reveal>
+          <div className="section-label border-primary/20 bg-primary/10 text-primary">Process</div>
+          <h2 className="display-title mt-5 max-w-3xl text-4xl font-bold md:text-6xl">AI 파이프라인으로 더 빠르게, 더 정교하게.</h2>
+        </Reveal>
+        <div className="relative mt-14 grid gap-6 md:grid-cols-2">
+          {processSteps.map((step, index) => (
+            <Reveal key={step.step} delay={index * 0.08}>
+              <motion.article
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="glass-panel rounded-[1.75rem] p-7"
               >
-                상담 신청하기
-              </a>
-            </div>
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <p className="font-mono text-sm text-primary">STEP {step.step}</p>
+                    <h3 className="mt-3 text-2xl font-semibold">{step.title}</h3>
+                  </div>
+                  <div className="rounded-full border border-border/70 px-3 py-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Velox Flow
+                  </div>
+                </div>
+                <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">{step.description}</p>
+              </motion.article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -346,133 +392,305 @@ function Pricing() {
   );
 }
 
-/* ─── Process ─── */
-const steps = [
-  { num: "01", title: "상담", desc: "요구사항과 목표를 파악합니다" },
-  { num: "02", title: "기획", desc: "사이트 구조와 콘텐츠를 설계합니다" },
-  { num: "03", title: "디자인", desc: "브랜드에 맞는 UI를 제작합니다" },
-  { num: "04", title: "개발", desc: "최적화된 코드로 구현합니다" },
-  { num: "05", title: "배포", desc: "글로벌 CDN에 배포합니다" },
-];
-
-function Process() {
+function PortfolioSection() {
   return (
-    <section className="relative py-32 px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-electric">
-            Process
+    <section id="portfolio" className="container-shell py-24 md:py-32">
+      <Reveal>
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="section-label border-accent/30 bg-accent/10 text-accent">Portfolio</div>
+            <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">비대칭 그리드로 보여주는 샘플 프로젝트.</h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-muted-foreground md:text-base">
+            에이전시, 변호사, 스타트업, 세무사. 업종별로 톤과 정보 구조를 다르게 설계하는 것이 Velox 방식입니다.
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-            제작 과정
-          </h2>
         </div>
-
-        <div className="relative mt-20">
-          {/* Connection line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-electric/50 via-emerald/50 to-transparent sm:left-1/2 sm:-translate-x-px" />
-
-          <div className="space-y-12 sm:space-y-16">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className={`relative flex items-start gap-6 sm:gap-12 ${
-                  i % 2 === 1 ? "sm:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Dot on line */}
-                <div className="absolute left-8 top-1 -translate-x-1/2 sm:left-1/2">
-                  <div className="h-3 w-3 rounded-full border-2 border-electric bg-navy" />
+      </Reveal>
+      <div className="mt-14 grid auto-rows-[220px] gap-5 md:grid-cols-12">
+        {portfolio.map((item, index) => (
+          <Reveal key={item.title} delay={index * 0.06} className={item.classes}>
+            <motion.article
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.25 }}
+              className="group relative h-full overflow-hidden rounded-[2rem] border border-border/70 bg-gradient-to-br from-primary/[0.14] via-background to-accent/[0.12] p-6"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_26%)] opacity-60 transition duration-300 group-hover:opacity-90" />
+              <div className="absolute bottom-0 left-0 right-0 translate-y-5 border-t border-white/10 bg-background/70 p-6 opacity-0 backdrop-blur-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+              <div className="relative flex h-full flex-col justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{item.category}</p>
+                  <h3 className="display-title mt-3 text-3xl font-bold">{item.title}</h3>
                 </div>
-
-                {/* Content */}
-                <div className={`ml-16 sm:ml-0 sm:w-1/2 ${i % 2 === 1 ? "sm:text-right sm:pr-16" : "sm:pl-16 sm:ml-auto"}`}>
-                  <span className="font-mono text-sm text-electric">{step.num}</span>
-                  <h3 className="mt-1 text-xl font-bold">{step.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{step.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {item.stack.map((tag) => (
+                    <span key={tag} className="rounded-full border border-border/70 bg-background/55 px-3 py-1 text-xs text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
+            </motion.article>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PricingSection() {
+  return (
+    <section id="pricing" className="relative py-24 md:py-32">
+      <div className="container-shell">
+        <Reveal>
+          <div className="text-center">
+            <div className="section-label border-primary/20 bg-primary/10 text-primary">Service & Pricing</div>
+            <h2 className="display-title mx-auto mt-5 max-w-3xl text-4xl font-bold md:text-6xl">가격은 투명하게. 결과는 프리미엄하게.</h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {plans.map((plan, index) => (
+            <Reveal key={plan.name} delay={index * 0.08}>
+              <motion.article
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.25 }}
+                className={`rounded-[2rem] p-[1px] ${plan.featured ? "bg-gradient-to-br from-primary via-accent/70 to-primary/20" : "bg-white/0"}`}
+              >
+                <div className={`glass-panel flex h-full flex-col rounded-[2rem] p-8 ${plan.featured ? "shadow-[0_28px_80px_rgba(124,114,255,0.18)]" : ""}`}>
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-sm text-muted-foreground">{plan.name}</p>
+                    {plan.featured && <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">추천</span>}
+                  </div>
+                  <p className="display-title mt-6 text-5xl font-bold">{plan.price}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">납기 {plan.delivery}</p>
+                  <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex gap-3">
+                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contact"
+                    className={`mt-10 inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-semibold transition ${plan.featured ? "bg-primary text-primary-foreground hover:-translate-y-0.5" : "border border-border/70 hover:border-primary/40 hover:text-primary"}`}
+                  >
+                    이 플랜 문의하기
+                  </a>
+                </div>
+              </motion.article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <section className="container-shell py-24 md:py-32">
+      <Reveal>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="section-label border-accent/30 bg-accent/10 text-accent">Social Proof</div>
+            <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">추천과 후기에서 신뢰가 완성됩니다.</h2>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Star className="h-4 w-4 fill-accent text-accent" />
+            평균 만족도 4.9 / 5 (샘플 데이터)
           </div>
         </div>
+      </Reveal>
+      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        {testimonials.map((item, index) => (
+          <Reveal key={item.name} delay={index * 0.08}>
+            <article className="glass-panel rounded-[1.75rem] p-7">
+              <div className="flex gap-1 text-accent">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <p className="mt-6 text-base leading-8 text-foreground/90">“{item.quote}”</p>
+              <div className="mt-8 border-t border-border/60 pt-5">
+                <p className="font-semibold">{item.name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{item.role}</p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
 }
 
-/* ─── CTA ─── */
-function CTA() {
+function StackSection() {
+  const icons = useMemo(
+    () => [Bot, Code2, Layers3, Globe, Cloud, Sparkles],
+    []
+  );
+
   return (
-    <section id="contact" className="relative py-32 px-6">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-electric/[0.04] to-transparent" />
-
-      <div className="relative mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-          지금 시작하세요
-        </h2>
-        <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
-          프리미엄 웹사이트, 합리적인 가격으로 빠르게 완성해 드립니다.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href={KAKAO_LINK}
-            className="group relative inline-flex h-14 items-center gap-2 rounded-xl bg-gradient-to-r from-electric to-emerald px-8 text-base font-bold text-navy transition-shadow hover:shadow-[0_0_30px_rgba(0,212,255,0.3)]"
-          >
-            무료 상담 신청하기
-            <ArrowIcon />
-          </a>
-        </div>
-
-        <p className="mt-6 text-sm text-muted-foreground">
-          상담은 무료이며, 부담 없이 문의해 주세요.
-        </p>
+    <section className="relative py-24 md:py-32">
+      <div className="container-shell">
+        <Reveal>
+          <div className="glass-panel rounded-[2rem] px-6 py-10 md:px-10 md:py-12">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <div className="section-label border-primary/20 bg-primary/10 text-primary">Tech Stack</div>
+                <h2 className="display-title mt-5 text-4xl font-bold md:text-5xl">프리미엄 기술로 프리미엄 결과를 만듭니다.</h2>
+              </div>
+              <p className="max-w-xl text-sm leading-7 text-muted-foreground md:text-base">
+                정적 최적화, 빠른 퍼포먼스, 유지비 절감, 커스터마이징 유연성. 보기만 좋은 사이트가 아니라 오래 운영 가능한 구조를 선택합니다.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+              {stackItems.map((item, index) => {
+                const Icon = icons[index];
+                return (
+                  <div key={item} className="rounded-2xl border border-border/60 bg-background/50 px-4 py-5">
+                    <Icon className="h-5 w-5 text-primary" />
+                    <p className="mt-4 text-sm font-medium">{item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
 
-/* ─── Footer ─── */
+function FaqSection() {
+  return (
+    <section id="faq" className="container-shell py-24 md:py-32">
+      <Reveal>
+        <div className="max-w-3xl">
+          <div className="section-label border-accent/30 bg-accent/10 text-accent">FAQ</div>
+          <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">자주 묻는 질문</h2>
+        </div>
+      </Reveal>
+      <Reveal delay={0.08}>
+        <div className="mt-12 rounded-[2rem] border border-border/60 bg-card/70 p-4 md:p-6">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.q} value={`item-${index}`} className="border-b border-border/60 px-2 md:px-4">
+                <AccordionTrigger className="text-left text-base font-medium hover:text-primary">{faq.q}</AccordionTrigger>
+                <AccordionContent className="max-w-3xl text-sm leading-7 text-muted-foreground">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section id="contact" className="container-shell pb-16 pt-10 md:pb-24">
+      <Reveal>
+        <div className="noise mesh overflow-hidden rounded-[2rem] border border-border/60 px-6 py-10 md:px-10 md:py-14">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <div className="section-label border-primary/20 bg-primary/10 text-primary">Start Now</div>
+              <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">지금 시작하기.
+                <span className="block text-muted-foreground">브랜드가 바로 달라집니다.</span>
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                메일로 문의하거나 아래 정보만 남겨도 좋습니다. 상담 단계에서 업종별 벤치마크와 구조 제안까지 함께 드립니다.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3 text-sm text-muted-foreground">
+                <a href="mailto:hello@veloxstudio.co" className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2 transition hover:border-primary/40 hover:text-primary">
+                  <MessageCircleMore className="h-4 w-4" />
+                  hello@veloxstudio.co
+                </a>
+                <a href="https://veloxstudio.co" className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2 transition hover:border-primary/40 hover:text-primary">
+                  <Globe className="h-4 w-4" />
+                  veloxstudio.co
+                </a>
+              </div>
+            </div>
+            <form className="glass-panel rounded-[1.75rem] p-5 md:p-6">
+              <div className="grid gap-4">
+                <label className="grid gap-2 text-sm">
+                  <span>회사명</span>
+                  <input className="h-12 rounded-2xl border border-border bg-background/60 px-4 outline-none transition focus:border-primary/50" placeholder="Velox Studio" />
+                </label>
+                <label className="grid gap-2 text-sm">
+                  <span>연락처 또는 이메일</span>
+                  <input className="h-12 rounded-2xl border border-border bg-background/60 px-4 outline-none transition focus:border-primary/50" placeholder="hello@company.com" />
+                </label>
+                <label className="grid gap-2 text-sm">
+                  <span>프로젝트 설명</span>
+                  <textarea className="min-h-32 rounded-2xl border border-border bg-background/60 px-4 py-3 outline-none transition focus:border-primary/50" placeholder="원하는 사이트 톤, 업종, 목표, 필요한 페이지 수를 알려주세요." />
+                </label>
+                <a href="mailto:hello@veloxstudio.co?subject=Velox%20Studio%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98" className="inline-flex h-12 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5">
+                  상담 메일 보내기
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="border-t border-white/5 py-12 px-6">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-        <div className="flex items-center gap-2 font-bold">
-          <VeloxLogo />
-          <span>
-            Velox<span className="text-electric">.</span>
-          </span>
+    <footer className="border-t border-border/60 py-10">
+      <div className="container-shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div>
+          <VeloxMark />
+          <p className="mt-4 max-w-md text-sm leading-7 text-muted-foreground">
+            AI 기반 설계, 프리미엄 디자인, 정적 최적화, Cloudflare 배포까지. Velox Studio는 빠르고 설득력 있는 웹사이트를 만듭니다.
+          </p>
         </div>
-
-        <div className="flex flex-col items-center gap-1 text-sm text-muted-foreground sm:items-end">
-          <span>veloxstudio.co</span>
-          <a
-            href="mailto:hello@veloxstudio.co"
-            className="transition-colors hover:text-electric"
-          >
-            hello@veloxstudio.co
-          </a>
+        <div className="grid gap-2 text-sm text-muted-foreground md:text-right">
+          <a href="mailto:hello@veloxstudio.co" className="transition hover:text-primary">hello@veloxstudio.co</a>
+          <a href="https://veloxstudio.co" className="transition hover:text-primary">veloxstudio.co</a>
+          <p>© 2026 Velox Studio. All rights reserved.</p>
         </div>
-      </div>
-
-      <div className="mx-auto mt-8 max-w-6xl border-t border-white/5 pt-8 text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} Velox Studio. All rights reserved.
       </div>
     </footer>
   );
 }
 
-/* ─── Page ─── */
 export default function Home() {
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Velox Studio",
+    url: "https://veloxstudio.co",
+    email: "hello@veloxstudio.co",
+    description: "AI 기반 프리미엄 웹사이트 제작 에이전시",
+    areaServed: "KR",
+    priceRange: "₩99,000 - ₩2,490,000",
+    serviceType: ["Website Design", "Website Development", "SEO", "Cloudflare Deployment"],
+  };
+
   return (
-    <>
+    <main className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <Nav />
       <Hero />
-      <Features />
-      <Pricing />
-      <Process />
-      <CTA />
+      <WhyVelox />
+      <ProcessSection />
+      <PortfolioSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <StackSection />
+      <FaqSection />
+      <ContactSection />
       <Footer />
-    </>
+    </main>
   );
 }
