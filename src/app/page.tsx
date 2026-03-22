@@ -244,7 +244,7 @@ function Hero() {
             </div>
             <div className="absolute bottom-[15%] left-[16%] rounded-3xl border border-white/10 bg-background/70 p-5 shadow-xl backdrop-blur-xl">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <BadgeCheck className="h-4 w-4 text-emerald-400" />
+                <BadgeCheck aria-hidden="true" className="h-4 w-4 text-emerald-400" />
                 SEO · Cloudflare · Responsive 포함
               </div>
               <p className="mt-3 text-3xl font-bold">7-Day Launch</p>
@@ -254,7 +254,7 @@ function Hero() {
           <div className="relative max-w-3xl">
             <Reveal>
               <div className="section-label border-primary/20 bg-primary/10 text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
+                <Sparkles aria-hidden="true" className="h-3.5 w-3.5" />
                 AI가 만드는 프리미엄 웹사이트
               </div>
             </Reveal>
@@ -279,7 +279,7 @@ function Hero() {
                   className="group inline-flex h-14 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(124,114,255,0.34)]"
                 >
                   무료 상담받기
-                  <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                  <ArrowRight aria-hidden="true" className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                 </a>
                 <a
                   href="#portfolio"
@@ -307,7 +307,7 @@ function Hero() {
         </div>
         <a href="#why-velox" className="mx-auto mt-8 flex w-fit items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground">
           아래로 스크롤
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown aria-hidden="true" className="h-4 w-4" />
         </a>
       </div>
     </section>
@@ -338,7 +338,7 @@ function WhyVelox() {
             <Reveal key={item.title} delay={index * 0.08}>
               <div className="group glass-panel rounded-[1.75rem] p-7 transition hover:-translate-y-1 hover:border-primary/40">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary transition group-hover:scale-105 group-hover:bg-primary/18">
-                  <Icon className="h-6 w-6" />
+                  <Icon aria-hidden="true" className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
@@ -467,7 +467,7 @@ function PricingSection() {
                   <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex gap-3">
-                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <BadgeCheck aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -498,7 +498,7 @@ function TestimonialsSection() {
             <h2 className="display-title mt-5 text-4xl font-bold md:text-6xl">추천과 후기에서 신뢰가 완성됩니다.</h2>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Star className="h-4 w-4 fill-accent text-accent" />
+            <Star aria-hidden="true" className="h-4 w-4 fill-accent text-accent" />
             평균 만족도 4.9 / 5 (샘플 데이터)
           </div>
         </div>
@@ -509,7 +509,7 @@ function TestimonialsSection() {
             <article className="glass-panel rounded-[1.75rem] p-7">
               <div className="flex gap-1 text-accent">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
+                  <Star aria-hidden="true" key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
               <p className="mt-6 text-base leading-8 text-foreground/90">“{item.quote}”</p>
@@ -550,7 +550,7 @@ function StackSection() {
                 const Icon = icons[index];
                 return (
                   <div key={item} className="rounded-2xl border border-border/60 bg-background/50 px-4 py-5">
-                    <Icon className="h-5 w-5 text-primary" />
+                    <Icon aria-hidden="true" className="h-5 w-5 text-primary" />
                     <p className="mt-4 text-sm font-medium">{item}</p>
                   </div>
                 );
@@ -606,11 +606,11 @@ function ContactSection() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3 text-sm text-muted-foreground">
                 <a href="mailto:hello@veloxstudio.co" className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2 transition hover:border-primary/40 hover:text-primary">
-                  <MessageCircleMore className="h-4 w-4" />
+                  <MessageCircleMore aria-hidden="true" className="h-4 w-4" />
                   hello@veloxstudio.co
                 </a>
                 <a href="https://veloxstudio.co" className="inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-2 transition hover:border-primary/40 hover:text-primary">
-                  <Globe className="h-4 w-4" />
+                  <Globe aria-hidden="true" className="h-4 w-4" />
                   veloxstudio.co
                 </a>
               </div>
