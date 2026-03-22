@@ -349,7 +349,7 @@ function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -180]);
 
   return (
-    <section id="top" className="relative overflow-hidden pt-28">
+    <section id="top" className="relative overflow-x-clip overflow-y-visible pt-28">
       <div className="spotlight left-[6%] top-28 h-56 w-56 bg-primary/40" />
       <div className="spotlight right-[8%] top-24 h-56 w-56 bg-accent/30" />
       <div className="container-shell relative py-16 md:py-24">

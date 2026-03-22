@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export function Reveal({
   children,
@@ -15,33 +15,24 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
   const prefersReducedMotion = useReducedMotion();
-  const [isHydrated, setIsHydrated] = useState(false);
 
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
-
-  const shouldAnimate = isHydrated && !prefersReducedMotion;
+  if (prefersReducedMotion) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={false}
-      animate={
-        shouldAnimate
-          ? isInView
-            ? { opacity: 1, y: 0 }
-            : { opacity: 0, y }
-          : { opacity: 1, y: 0 }
-      }
-      transition={
-        shouldAnimate
-          ? { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }
-          : { duration: 0 }
-      }
+      style={{ opacity: 0, y }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>
