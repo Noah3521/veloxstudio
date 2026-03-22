@@ -353,8 +353,8 @@ function Hero() {
       <div className="spotlight left-[6%] top-28 h-56 w-56 bg-primary/40" />
       <div className="spotlight right-[8%] top-24 h-56 w-56 bg-accent/30" />
       <div className="container-shell relative py-16 md:py-24">
-        <div className="noise mesh relative overflow-hidden rounded-[var(--radius-card)] border border-border/60 px-6 py-12 md:px-10 md:py-16 lg:px-14 lg:py-20">
-          <motion.div style={prefersReducedMotion ? undefined : { y }} className="absolute inset-y-0 right-[-12%] hidden w-[44%] lg:block">
+        <div className="noise mesh relative overflow-hidden rounded-[var(--radius-card)] border border-border/60 px-6 py-12 md:px-10 md:py-16 lg:overflow-visible lg:px-14 lg:py-20">
+          <motion.div style={prefersReducedMotion ? undefined : { y }} className="absolute inset-y-0 right-[2%] hidden w-[36%] lg:block xl:w-[34%]">
             <div className="absolute right-0 top-8 h-[80%] w-full rounded-[var(--radius-card)] border border-white/10 bg-gradient-to-br from-white/12 to-transparent shadow-2xl backdrop-blur-2xl" />
             <div className="absolute left-[10%] top-[18%] h-48 w-48 rounded-full bg-primary/25 blur-3xl" />
             <div className="absolute bottom-[12%] right-[8%] h-32 w-32 rounded-full bg-accent/20 blur-3xl" />
