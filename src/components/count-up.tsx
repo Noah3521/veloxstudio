@@ -1,23 +1,41 @@
 "use client";
 
-import { animate, useInView, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useInView, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
-export function CountUp({ value, suffix = "", duration = 1.6 }: { value: number; suffix?: string; duration?: number }) {
+export function CountUp({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) {
   const ref = useRef<HTMLSpanElement | null>(null);
+  const prefersReducedMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const motionValue = useMotionValue(0);
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useMotionValueEvent(motionValue, "change", (latest) => {
-    setDisplayValue(Math.round(latest));
-  });
+  const springValue = useSpring(motionValue, { duration: 2000, bounce: 0 });
 
   useEffect(() => {
-    if (!isInView) return;
-    const controls = animate(motionValue, value, { duration, ease: "easeOut" });
-    return () => controls.stop();
-  }, [duration, isInView, motionValue, value]);
+    if (prefersReducedMotion) {
+      if (ref.current) ref.current.textContent = `${value.toLocaleString()}${suffix}`;
+      return;
+    }
 
-  return <span ref={ref}>{displayValue.toLocaleString()}{suffix}</span>;
+    if (isInView) motionValue.set(value);
+  }, [isInView, motionValue, prefersReducedMotion, suffix, value]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const unsubscribe = springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = `${Math.round(latest).toLocaleString()}${suffix}`;
+      }
+    });
+
+    return unsubscribe;
+  }, [prefersReducedMotion, springValue, suffix]);
+
+  return <span ref={ref}>{value.toLocaleString()}{suffix}</span>;
 }
