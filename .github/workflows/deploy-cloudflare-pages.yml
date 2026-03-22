@@ -1,0 +1,72 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages via API
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_EMAIL: ${{ secrets.CF_EMAIL }}
+          CF_GLOBAL_API_KEY: ${{ secrets.CF_GLOBAL_API_KEY }}
+          CF_PROJECT_NAME: veloxstudio
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, mimetypes, os
+          from pathlib import Path
+          import requests
+
+          dist = Path('out')
+          if not dist.exists():
+            raise SystemExit('Build output directory not found: out')
+
+          headers = {
+            'X-Auth-Email': os.environ['CF_EMAIL'],
+            'X-Auth-Key': os.environ['CF_GLOBAL_API_KEY'],
+          }
+
+          manifest = {}
+          file_map = {}
+          for f in sorted(p for p in dist.rglob('*') if p.is_file()):
+            rel = '/' + str(f.relative_to(dist)).replace('\\', '/')
+            content = f.read_bytes()
+            sha = hashlib.sha256(content).hexdigest()
+            manifest[rel] = sha
+            file_map[sha] = (f, content)
+
+          multipart = [('manifest', (None, json.dumps(manifest), 'application/json'))]
+          for sha, (f, content) in file_map.items():
+            mime = mimetypes.guess_type(str(f))[0] or 'application/octet-stream'
+            multipart.append((sha, (f.name, content, mime)))
+
+          url = f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/pages/projects/{os.environ['CF_PROJECT_NAME']}/deployments"
+          resp = requests.post(url, headers=headers, files=multipart, timeout=600)
+          print(resp.status_code)
+          print(resp.text)
+          resp.raise_for_status()
+          data = resp.json()
+          if not data.get('success'):
+            raise SystemExit(data)
+          result = data['result']
+          print('Deployment URL:', result.get('url'))
+          PY
