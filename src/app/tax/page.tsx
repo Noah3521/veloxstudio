@@ -12,7 +12,7 @@ export default function TaxPage() {
     <IndustryLanding
       slug="tax"
       navLabel="세무사 · 회계사"
-      accent="blue"
+      accent="sand"
       eyebrow="For Tax Accountants & CPAs"
       title="복잡한 세무 서비스를 쉽게 설명하는 홈페이지"
       subtitle="세무 서비스는 전문적이어야 하지만 고객이 이해하기 쉽게 보여야 합니다. 서비스 구분, 고객 유형별 안내, 시즌성 메시지, 신뢰와 문의 전환까지 세무 업종에 맞는 구조로 정리합니다."

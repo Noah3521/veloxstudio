@@ -1,4 +1,7 @@
-import { IndustryLanding, buildIndustryMetadata } from "@/components/industry-landing";
+import {
+  IndustryLanding,
+  buildIndustryMetadata,
+} from "@/components/industry-landing";
 
 export const metadata = buildIndustryMetadata({
   slug: "lawyer",
@@ -12,7 +15,7 @@ export default function LawyerPage() {
     <IndustryLanding
       slug="lawyer"
       navLabel="법률사무소"
-      accent="cyan"
+      accent="terracotta"
       eyebrow="For Lawyers & Law Firms"
       title="신뢰를 먼저 만드는 법률사무소 홈페이지"
       subtitle="예쁜 화면보다 먼저 필요한 것은 신뢰되는 구조입니다. 업무분야 정리, 대표변호사 소개, 상담 CTA, 빠른 로딩과 SEO까지 법률사무소에 맞는 방식으로 설계합니다."
@@ -98,33 +101,48 @@ export default function LawyerPage() {
         },
       ]}
       processTitle="상담부터 오픈까지 빠르고 명확하게 진행합니다"
-      process={[
-        "상담",
-        "구조 제안",
-        "디자인 / 제작",
-        "검수 / 오픈",
-      ]}
+      process={["상담", "구조 제안", "디자인 / 제작", "검수 / 오픈"]}
       pricingTitle="Founding 5 한정, 법률사무소 맞춤 제작 패키지"
       pricingNote="초기 5팀 한정 프로모션으로 업종 맞춤 구조 제안과 제작을 빠르게 진행합니다."
       pricingPlans={[
         {
           name: "STANDARD",
           price: "79,000원",
-          description: "빠르게 시작해야 하는 사무소를 위한 핵심 구성안 중심 패키지",
-          features: ["핵심 1페이지", "모바일 반응형", "기본 SEO 구조", "상담 CTA 연결"],
+          description:
+            "빠르게 시작해야 하는 사무소를 위한 핵심 구성안 중심 패키지",
+          features: [
+            "핵심 1페이지",
+            "모바일 반응형",
+            "기본 SEO 구조",
+            "상담 CTA 연결",
+          ],
         },
         {
           name: "DELUXE",
           price: "690,000원",
-          description: "법률사무소 소개와 업무분야 정리까지 포함한 가장 균형 잡힌 패키지",
-          features: ["4~5개 핵심 섹션", "업무분야 구조 설계", "대표변호사 소개", "카카오톡/문의 연동", "기본 카피 정리"],
+          description:
+            "법률사무소 소개와 업무분야 정리까지 포함한 가장 균형 잡힌 패키지",
+          features: [
+            "4~5개 핵심 섹션",
+            "업무분야 구조 설계",
+            "대표변호사 소개",
+            "카카오톡/문의 연동",
+            "기본 카피 정리",
+          ],
           highlight: true,
         },
         {
           name: "PREMIUM",
           price: "1,890,000원",
-          description: "브랜드 신뢰도와 검색 유입까지 함께 강화하는 확장형 패키지",
-          features: ["다중 페이지 구성", "칼럼/콘텐츠 확장", "고급 SEO 세팅", "세부 서비스 구조화", "출시 후 안정화 지원"],
+          description:
+            "브랜드 신뢰도와 검색 유입까지 함께 강화하는 확장형 패키지",
+          features: [
+            "다중 페이지 구성",
+            "칼럼/콘텐츠 확장",
+            "고급 SEO 세팅",
+            "세부 서비스 구조화",
+            "출시 후 안정화 지원",
+          ],
         },
       ]}
       faqTitle="법률사무소 랜딩 제작 FAQ"

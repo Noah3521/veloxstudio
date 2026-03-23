@@ -28,7 +28,7 @@ type PricePlan = {
 type IndustryLandingProps = {
   slug: "lawyer" | "tax";
   navLabel: string;
-  accent: "cyan" | "blue";
+  accent: "terracotta" | "sand";
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -59,23 +59,23 @@ type IndustryLandingProps = {
 };
 
 const accentThemes = {
-  cyan: {
-    softText: "text-electric",
-    pill: "border-electric/20 bg-electric/10 text-electric",
-    glow: "from-electric/18 via-transparent to-emerald/10",
-    button: "from-electric to-emerald text-navy",
-    cardRing: "from-electric/30 via-white/0 to-emerald/25",
-    timeline: "from-electric/60 via-emerald/35 to-transparent",
-    spotlight: "bg-electric/[0.07]",
+  terracotta: {
+    softText: "text-[#B8602C]",
+    pill: "border-[#D97706]/20 bg-[#F7EBDD] text-[#B8602C]",
+    glow: "from-[#F7EBDD] via-white to-[#F1DED0]",
+    button: "from-[#D97706] to-[#B8602C] text-foreground",
+    cardRing: "from-[#D97706]/25 via-white/0 to-[#B8602C]/20",
+    timeline: "from-[#D97706]/45 via-[#B8602C]/25 to-transparent",
+    spotlight: "bg-[#D97706]/[0.08]",
   },
-  blue: {
-    softText: "text-sky-300",
-    pill: "border-sky-300/20 bg-sky-300/10 text-sky-200",
-    glow: "from-sky-400/20 via-transparent to-blue-500/15",
-    button: "from-sky-300 to-blue-500 text-slate-950",
-    cardRing: "from-sky-300/30 via-white/0 to-blue-500/25",
-    timeline: "from-sky-300/60 via-blue-400/35 to-transparent",
-    spotlight: "bg-sky-300/[0.07]",
+  sand: {
+    softText: "text-[#9A6A42]",
+    pill: "border-[#C89B6D]/25 bg-[#F5F0EB] text-[#9A6A42]",
+    glow: "from-[#FAF5EF] via-white to-[#EFE1D2]",
+    button: "from-[#C89B6D] to-[#B8602C] text-foreground",
+    cardRing: "from-[#C89B6D]/25 via-white/0 to-[#B8602C]/15",
+    timeline: "from-[#C89B6D]/45 via-[#B8602C]/22 to-transparent",
+    spotlight: "bg-[#C89B6D]/[0.08]",
   },
 } as const;
 
@@ -99,8 +99,8 @@ function VeloxLogo() {
       />
       <defs>
         <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
-          <stop stopColor="#00D4FF" />
-          <stop offset="1" stopColor="#00E59B" />
+          <stop stopColor="#D97706" />
+          <stop offset="1" stopColor="#B8602C" />
         </linearGradient>
       </defs>
     </svg>
@@ -141,14 +141,16 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className={`text-sm font-semibold uppercase tracking-[0.28em] ${accentClass}`}>
+      <p
+        className={`text-sm font-semibold uppercase tracking-[0.28em] ${accentClass}`}
+      >
         {eyebrow}
       </p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
+        <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg">
           {description}
         </p>
       ) : null}
@@ -189,23 +191,32 @@ export function IndustryLanding(props: IndustryLandingProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#07111f] text-slate-100">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className={`absolute left-1/2 top-24 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-[140px] ${theme.spotlight}`} />
-        <div className="absolute inset-0 bg-grid opacity-70" />
-        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-white/[0.03] to-transparent" />
+        <div
+          className={`absolute left-1/2 top-24 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-[140px] ${theme.spotlight}`}
+        />
+        <div className="absolute inset-0 grid-glow opacity-40" />
+        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-white/60 to-transparent" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07111f]/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6">
-          <a href="/" className="flex items-center gap-3 text-sm font-semibold tracking-[0.14em] text-white uppercase">
+          <a
+            href="/"
+            className="flex items-center gap-3 text-sm font-semibold tracking-[0.14em] text-foreground uppercase text-foreground"
+          >
             <VeloxLogo />
             <span className="hidden sm:inline">Velox Studio</span>
           </a>
 
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition-colors hover:text-white">
+              <a
+                key={link.label}
+                href={link.href}
+                className="transition-colors hover:text-foreground"
+              >
                 {link.label}
               </a>
             ))}
@@ -224,27 +235,29 @@ export function IndustryLanding(props: IndustryLandingProps) {
         <section className="px-5 pb-20 pt-20 sm:px-6 sm:pt-24 md:pb-28">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div>
-              <div className={`inline-flex items-center rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] ${theme.pill}`}>
+              <div
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] ${theme.pill}`}
+              >
                 {props.eyebrow}
               </div>
-              <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+              <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
                 {props.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
                 {props.subtitle}
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a
                   href={ctaHref}
-                  className={`group inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r px-7 text-base font-semibold shadow-[0_24px_60px_rgba(8,15,32,0.35)] transition duration-300 hover:-translate-y-0.5 ${theme.button}`}
+                  className={`group inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r px-7 text-base font-semibold shadow-[0_16px_32px_rgba(140,120,100,0.14)] transition duration-300 hover:-translate-y-0.5 ${theme.button}`}
                 >
                   {props.ctaLabel}
                   <ArrowIcon />
                 </a>
                 <a
                   href="#pricing"
-                  className="inline-flex h-14 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 text-base font-medium text-slate-200 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  className="inline-flex h-14 items-center justify-center rounded-2xl border border-border bg-white/80 px-7 text-base font-medium text-muted-foreground transition hover:border-[#D7C9BA] hover:bg-white"
                 >
                   Founding 5 가격 보기
                 </a>
@@ -262,24 +275,32 @@ export function IndustryLanding(props: IndustryLandingProps) {
               </div>
             </div>
 
-            <div className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br p-7 sm:p-8 ${theme.glow}`}>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_38%)]" />
+            <div
+              className={`relative overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br p-7 sm:p-8 ${theme.glow}`}
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,119,6,0.10),transparent_38%)]" />
               <div className="relative">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
                   Landing Blueprint
                 </p>
                 <div className="mt-6 space-y-3">
                   {props.pages.map((page, index) => (
                     <div
                       key={page.name}
-                      className="flex items-start gap-4 rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4"
+                      className="flex items-start gap-4 rounded-2xl border border-border bg-white/88 px-4 py-4"
                     >
-                      <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${theme.pill}`}>
+                      <div
+                        className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${theme.pill}`}
+                      >
                         {String(index + 1).padStart(2, "0")}
                       </div>
                       <div>
-                        <h3 className="font-semibold text-white">{page.name}</h3>
-                        <p className="mt-1 text-sm leading-6 text-slate-300">{page.summary}</p>
+                        <h3 className="font-semibold text-foreground">
+                          {page.name}
+                        </h3>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                          {page.summary}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -301,11 +322,17 @@ export function IndustryLanding(props: IndustryLandingProps) {
               {props.problems.map((item) => (
                 <article
                   key={item.title}
-                  className={`rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-7 shadow-[0_20px_60px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent`}
+                  className={`rounded-[1.75rem] border border-border bg-white/88 p-7 shadow-[0_18px_36px_rgba(140,120,100,0.10)] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent`}
                 >
-                  <div className={`mb-5 h-1.5 w-16 rounded-full bg-gradient-to-r ${theme.glow}`} />
-                  <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-slate-300">{item.description}</p>
+                  <div
+                    className={`mb-5 h-1.5 w-16 rounded-full bg-gradient-to-r ${theme.glow}`}
+                  />
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-muted-foreground">
+                    {item.description}
+                  </p>
                 </article>
               ))}
             </div>
@@ -324,11 +351,17 @@ export function IndustryLanding(props: IndustryLandingProps) {
               {props.methods.map((item) => (
                 <article
                   key={item.title}
-                  className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/35 p-6"
+                  className="relative overflow-hidden rounded-[1.75rem] border border-border bg-white/88 p-6"
                 >
-                  <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${theme.cardRing}`} />
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+                  <div
+                    className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${theme.cardRing}`}
+                  />
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
                 </article>
               ))}
             </div>
@@ -336,7 +369,7 @@ export function IndustryLanding(props: IndustryLandingProps) {
         </section>
 
         <section id="pages" className="px-5 py-18 sm:px-6 md:py-24">
-          <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
+          <div className="mx-auto max-w-6xl rounded-[2rem] border border-border bg-white/88 p-8 sm:p-10">
             <SectionHeading
               eyebrow="Recommended Pages"
               title={props.pagesTitle}
@@ -345,11 +378,18 @@ export function IndustryLanding(props: IndustryLandingProps) {
             />
             <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {props.pages.map((page) => (
-                <div key={page.name} className="rounded-[1.5rem] border border-white/10 bg-slate-950/45 p-6">
-                  <p className={`text-sm font-semibold uppercase tracking-[0.2em] ${theme.softText}`}>
+                <div
+                  key={page.name}
+                  className="rounded-[1.5rem] border border-border bg-white/90 p-6"
+                >
+                  <p
+                    className={`text-sm font-semibold uppercase tracking-[0.2em] ${theme.softText}`}
+                  >
                     {page.name}
                   </p>
-                  <p className="mt-4 text-base leading-7 text-slate-300">{page.summary}</p>
+                  <p className="mt-4 text-base leading-7 text-muted-foreground">
+                    {page.summary}
+                  </p>
                 </div>
               ))}
             </div>
@@ -366,9 +406,16 @@ export function IndustryLanding(props: IndustryLandingProps) {
               />
               <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
                 {props.extraSection.items.map((item) => (
-                  <article key={item.title} className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6">
-                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+                  <article
+                    key={item.title}
+                    className="rounded-[1.75rem] border border-border bg-white/88 p-6"
+                  >
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                      {item.description}
+                    </p>
                   </article>
                 ))}
               </div>
@@ -386,12 +433,21 @@ export function IndustryLanding(props: IndustryLandingProps) {
             />
             <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {props.process.map((step, index) => (
-                <div key={step} className="relative rounded-[1.75rem] border border-white/10 bg-slate-950/45 p-6">
-                  <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${theme.timeline}`} />
-                  <div className={`inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${theme.pill}`}>
+                <div
+                  key={step}
+                  className="relative rounded-[1.75rem] border border-border bg-white/90 p-6"
+                >
+                  <div
+                    className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${theme.timeline}`}
+                  />
+                  <div
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${theme.pill}`}
+                  >
                     {index + 1}
                   </div>
-                  <p className="mt-5 text-lg font-semibold text-white">{step}</p>
+                  <p className="mt-5 text-lg font-semibold text-foreground">
+                    {step}
+                  </p>
                 </div>
               ))}
             </div>
@@ -412,26 +468,35 @@ export function IndustryLanding(props: IndustryLandingProps) {
                   key={plan.name}
                   className={`relative flex flex-col rounded-[2rem] border p-8 ${
                     plan.highlight
-                      ? "border-white/20 bg-white/[0.06] shadow-[0_24px_80px_rgba(4,12,30,0.4)]"
-                      : "border-white/10 bg-slate-950/45"
+                      ? "border-[#D97706]/20 bg-white shadow-[0_18px_36px_rgba(140,120,100,0.12)]"
+                      : "border-border bg-white/90"
                   }`}
                 >
                   {plan.highlight ? (
-                    <span className={`absolute -top-3 left-8 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] ${theme.pill}`}>
+                    <span
+                      className={`absolute -top-3 left-8 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] ${theme.pill}`}
+                    >
                       Best Fit
                     </span>
                   ) : null}
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">
                     {plan.name}
                   </p>
-                  <div className="mt-5 text-4xl font-semibold tracking-tight text-white">
+                  <div className="mt-5 text-4xl font-semibold tracking-tight text-foreground">
                     {plan.price}
                   </div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">{plan.description}</p>
-                  <ul className="mt-8 space-y-3 text-sm text-slate-200">
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {plan.description}
+                  </p>
+                  <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 leading-6">
-                        <span className={`mt-1 h-2.5 w-2.5 rounded-full ${theme.softText.replace("text", "bg")}`} />
+                      <li
+                        key={feature}
+                        className="flex items-start gap-3 leading-6"
+                      >
+                        <span
+                          className={`mt-1 h-2.5 w-2.5 rounded-full ${theme.softText.replace("text", "bg")}`}
+                        />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -450,12 +515,23 @@ export function IndustryLanding(props: IndustryLandingProps) {
 
         <section id="faq" className="px-5 py-18 sm:px-6 md:py-24">
           <div className="mx-auto max-w-6xl">
-            <SectionHeading eyebrow="FAQ" title={props.faqTitle} accentClass={theme.softText} />
+            <SectionHeading
+              eyebrow="FAQ"
+              title={props.faqTitle}
+              accentClass={theme.softText}
+            />
             <div className="mt-12 grid gap-5 md:grid-cols-2">
               {props.faqs.map((faq) => (
-                <article key={faq.q} className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-7">
-                  <h3 className="text-lg font-semibold text-white">{faq.q}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-300">{faq.a}</p>
+                <article
+                  key={faq.q}
+                  className="rounded-[1.75rem] border border-border bg-white/88 p-7"
+                >
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {faq.q}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                    {faq.a}
+                  </p>
                 </article>
               ))}
             </div>
@@ -463,20 +539,26 @@ export function IndustryLanding(props: IndustryLandingProps) {
         </section>
 
         <section id="contact" className="px-5 pb-24 pt-8 sm:px-6 md:pb-28">
-          <div className={`mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] border border-white/10 bg-gradient-to-r p-8 sm:p-12 ${theme.glow}`}>
+          <div
+            className={`mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] border border-border bg-gradient-to-r p-8 sm:p-12 ${theme.glow}`}
+          >
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
-                <p className={`text-sm font-semibold uppercase tracking-[0.28em] ${theme.softText}`}>
+                <p
+                  className={`text-sm font-semibold uppercase tracking-[0.28em] ${theme.softText}`}
+                >
                   Final CTA
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
                   {props.finalTitle}
                 </h2>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+                <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
                   {props.finalDescription}
                 </p>
                 {props.finalHighlight ? (
-                  <p className={`mt-4 text-sm font-semibold uppercase tracking-[0.24em] ${theme.softText}`}>
+                  <p
+                    className={`mt-4 text-sm font-semibold uppercase tracking-[0.24em] ${theme.softText}`}
+                  >
                     {props.finalHighlight}
                   </p>
                 ) : null}
@@ -491,7 +573,7 @@ export function IndustryLanding(props: IndustryLandingProps) {
                 </a>
                 <a
                   href="mailto:hello@veloxstudio.co"
-                  className="inline-flex h-14 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 text-base font-medium text-slate-100 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  className="inline-flex h-14 items-center justify-center rounded-2xl border border-border bg-white/80 px-7 text-base font-medium text-foreground transition hover:border-[#D7C9BA] hover:bg-white"
                 >
                   hello@veloxstudio.co
                 </a>
