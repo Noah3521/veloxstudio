@@ -22,16 +22,14 @@ export function Reveal({
     <motion.div
       ref={ref}
       className={className}
-      style={{ opacity: 0 }}
-      initial={reduceMotion ? false : { opacity: 0, y }}
-      animate={
-        isInView
-          ? reduceMotion
-            ? { opacity: 1 }
-            : { opacity: 1, y: 0 }
-          : {}
+      style={{ opacity: 1 }}
+      initial={false}
+      animate={{ opacity: 1, y: 0 }}
+      transition={
+        reduceMotion || !isInView
+          ? undefined
+          : { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay }
       }
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>

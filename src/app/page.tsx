@@ -570,7 +570,7 @@ export default function Home() {
                     ].map(([value, label]) => (
                       <div
                         key={label}
-                        className="rounded-[24px] border border-border bg-[#F7F2EC]2 px-4 py-4"
+                        className="rounded-[24px] border border-border bg-secondary px-4 py-4"
                       >
                         <p className="display-title text-3xl font-black">
                           {value}
@@ -959,7 +959,7 @@ export default function Home() {
         </div>
         <Reveal delay={0.12}>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-[#F7F2EC]2 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-secondary px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-[#9A6A42]">
                   ✓ 결과 미달 시 100% 재작업
@@ -968,7 +968,7 @@ export default function Home() {
                 만족 가능한 방향이 나올 때까지 핵심 구조를 다시 다듬습니다.
               </p>
             </div>
-            <div className="rounded-[24px] border border-primary/20 bg-[#F7F2EC]2 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-primary/20 bg-secondary px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-primary">
                   ✓ 납기 지연 최소화
@@ -977,7 +977,7 @@ export default function Home() {
                 자료 전달이 끝나면 일정표 기준으로 빠르게 제작을 진행합니다.
               </p>
             </div>
-            <div className="rounded-[24px] border border-accent/20 bg-[#F7F2EC]2 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-accent/20 bg-secondary px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-accent">
                   ✓ 3분 무료 견적 접수
@@ -1080,7 +1080,7 @@ export default function Home() {
                 ];
                 return (
                   <Reveal key={item.label} delay={index * 0.04}>
-                    <div className="rounded-[24px] border border-border bg-[#F7F2EC]2 px-4 py-5">
+                    <div className="rounded-[24px] border border-border bg-secondary px-4 py-5">
                       <Icon
                         className="h-5 w-5"
                         style={{ color: accents[index] }}
@@ -1181,7 +1181,7 @@ export default function Home() {
                 noValidate
                 className="rounded-[28px] border border-border bg-white/80 p-5 md:p-6"
               >
-                <div className="mb-5 rounded-[22px] border border-primary/20 bg-primary/8 p-4 text-sm text-foreground/90">
+                <div className="mb-5 rounded-[22px] border border-primary/20 bg-primary/10 p-4 text-sm text-foreground/90">
                   <p className="font-bold text-primary">
                     3분 안에 무료 견적 접수
                   </p>
