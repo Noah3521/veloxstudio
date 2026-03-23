@@ -196,7 +196,7 @@ export function IndustryLanding(props: IndustryLandingProps) {
         <div
           className={`absolute left-1/2 top-24 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-[140px] ${theme.spotlight}`}
         />
-        <div className="absolute inset-0 grid-glow opacity-40" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,226,218,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(232,226,218,0.55)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(circle,black,transparent_80%)] opacity-40" />
         <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-white/60 to-transparent" />
       </div>
 

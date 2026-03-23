@@ -110,10 +110,10 @@ const portfolio = [
     accent: "#D97706",
     badge: "실시간 리포트",
     metric: "전환 CTA 중심",
-    hero: "from-[#D97706] via-[#7ee7ff] to-[#d8f8ff]",
-    header: "bg-[#021820]",
-    panel: "bg-[#0d1620]",
-    side: "bg-[#102231]",
+    hero: "from-[#D97706] via-[#E8A84C] to-[#FDF5EC]",
+    header: "bg-[#FFF8F0]",
+    panel: "bg-[#FDF5EC]",
+    side: "bg-[#F8EDE0]",
   },
   {
     name: "Nova Legal",
@@ -122,34 +122,34 @@ const portfolio = [
     accent: "#B8602C",
     badge: "상담 예약 흐름",
     metric: "권위감 강화",
-    hero: "from-[#B8602C] via-[#ff87ec] to-[#ffe0fb]",
-    header: "bg-[#1f0b1d]",
-    panel: "bg-[#180d18]",
-    side: "bg-[#2b1230]",
+    hero: "from-[#B8602C] via-[#D4956C] to-[#FAF0EE]",
+    header: "bg-[#FDF2F0]",
+    panel: "bg-[#FAF0EE]",
+    side: "bg-[#F5E8E5]",
   },
   {
     name: "Orbit Commerce",
     tag: "D2C / Tech",
     desc: "상품 하이라이트와 베네핏 블록, 구매 유도 섹션을 결합한 커머스형 브랜드 페이지 구성.",
-    accent: "#C89B6D",
+    accent: "#6B8F60",
     badge: "상품 USP 배치",
     metric: "구매 전환 최적화",
-    hero: "from-[#C89B6D] via-[#97ff83] to-[#ecffe7]",
-    header: "bg-[#0b170d]",
-    panel: "bg-[#0e1510]",
-    side: "bg-[#16301b]",
+    hero: "from-[#6B8F60] via-[#A8C89C] to-[#F0F5EA]",
+    header: "bg-[#F5F8F0]",
+    panel: "bg-[#F0F5EA]",
+    side: "bg-[#E8F0DE]",
   },
   {
-    name: "Warmline Ventures",
+    name: "NeonGrid",
     tag: "Startup Studio",
     desc: "포트폴리오·팀·파트너십 블록이 살아있는 투자사/스튜디오형 메인 페이지 시안.",
-    accent: "#D97706",
+    accent: "#9B6DB0",
     badge: "파트너십 강조",
     metric: "브랜드 존재감 상승",
-    hero: "from-[#D97706] via-[#5be7ff] to-[#B8602C]",
-    header: "bg-[#09131d]",
-    panel: "bg-[#0d1218]",
-    side: "bg-[#161225]",
+    hero: "from-[#9B6DB0] via-[#C4A8D4] to-[#F2F0FA]",
+    header: "bg-[#F8F5FF]",
+    panel: "bg-[#F2F0FA]",
+    side: "bg-[#ECE8F5]",
   },
 ];
 
@@ -321,7 +321,7 @@ function TypeHeadline() {
   return (
     <h1 className="display-title text-5xl font-black leading-[0.95] sm:text-6xl lg:text-[88px] xl:text-[104px]">
       <span className="block">{line1 || "\u00A0"}</span>
-      <span className="block bg-gradient-to-r from-[#D97706] via-[#F4E6D5] to-[#B8602C] bg-clip-text text-transparent">
+      <span className="block bg-gradient-to-r from-[#D97706] via-[#1A1410] to-[#B8602C] bg-clip-text text-transparent">
         {line2 || "\u00A0"}
       </span>
       {!reduceMotion &&
@@ -502,7 +502,7 @@ export default function Home() {
       </header>
 
       <section id="top" className="relative pt-28 md:pt-32">
-        <div className="pointer-events-none absolute inset-0 grid-glow opacity-60" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(232,226,218,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(232,226,218,0.7)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(circle,black,transparent_80%)] opacity-60" />
         <div className="container-shell py-10 md:py-16">
           <motion.div
             className="mesh-panel soft-card relative overflow-hidden rounded-[32px] px-6 py-10 md:px-10 md:py-14"
@@ -570,7 +570,7 @@ export default function Home() {
                     ].map(([value, label]) => (
                       <div
                         key={label}
-                        className="rounded-[24px] border border-border bg-white/82 px-4 py-4"
+                        className="rounded-[24px] border border-border bg-[#F7F2EC]2 px-4 py-4"
                       >
                         <p className="display-title text-3xl font-black">
                           {value}
@@ -594,8 +594,8 @@ export default function Home() {
                     <div className="space-y-4 pt-4">
                       <div className="h-3 w-24 rounded-full bg-primary/70" />
                       <div className="h-12 rounded-[18px] bg-gradient-to-r from-white via-[#D97706]/80 to-[#B8602C]/80" />
-                      <div className="h-3 w-4/5 rounded-full bg-white/20" />
-                      <div className="h-3 w-3/5 rounded-full bg-white/10" />
+                      <div className="h-3 w-4/5 rounded-full bg-white/60" />
+                      <div className="h-3 w-3/5 rounded-full bg-[#F5F0EB]" />
                       <div className="grid grid-cols-2 gap-3">
                         <div className="h-28 rounded-[20px] bg-primary/12" />
                         <div className="h-28 rounded-[20px] bg-accent/12" />
@@ -759,7 +759,7 @@ export default function Home() {
                           <span className="h-2.5 w-2.5 rounded-full bg-[#E3B267]" />
                           <span className="h-2.5 w-2.5 rounded-full bg-[#B98E5F]" />
                         </div>
-                        <div className="h-2 w-24 rounded-full bg-white/10" />
+                        <div className="h-2 w-24 rounded-full bg-[#F5F0EB]" />
                       </div>
                       <div className="grid gap-0 md:grid-cols-[1.28fr_0.72fr]">
                         <div
@@ -773,20 +773,20 @@ export default function Home() {
                             <div className="mt-2 h-2.5 w-3/5 rounded-full bg-[#8C7864]/18" />
                             <div className="mt-4 flex gap-2">
                               <div className="h-9 w-24 rounded-full bg-[#8C7864]/48" />
-                              <div className="h-9 w-16 rounded-full bg-white/35" />
+                              <div className="h-9 w-16 rounded-full bg-white/70" />
                             </div>
                           </div>
                           <div className="mt-3 grid gap-3 sm:grid-cols-2">
                             <div className="rounded-[18px] bg-white/80 p-3">
                               <div className="h-2.5 w-20 rounded-full bg-[#e7ddd3]" />
-                              <div className="mt-3 h-16 rounded-[14px] bg-white/10" />
-                              <div className="mt-3 h-2 w-4/5 rounded-full bg-white/15" />
+                              <div className="mt-3 h-16 rounded-[14px] bg-[#F5F0EB]" />
+                              <div className="mt-3 h-2 w-4/5 rounded-full bg-[#EEE6DD]" />
                             </div>
                             <div className="rounded-[18px] bg-white/80 p-3">
                               <div className="h-2.5 w-14 rounded-full bg-[#e7ddd3]" />
                               <div className="mt-3 grid gap-2">
-                                <div className="h-9 rounded-[12px] bg-white/10" />
-                                <div className="h-9 rounded-[12px] bg-white/8" />
+                                <div className="h-9 rounded-[12px] bg-[#F5F0EB]" />
+                                <div className="h-9 rounded-[12px] bg-[#F7F2EC]" />
                               </div>
                             </div>
                           </div>
@@ -799,9 +799,9 @@ export default function Home() {
                               />
                             </div>
                             <div className="mt-3 grid grid-cols-3 gap-2">
-                              <div className="h-12 rounded-[12px] bg-white/10" />
-                              <div className="h-12 rounded-[12px] bg-white/7" />
-                              <div className="h-12 rounded-[12px] bg-white/10" />
+                              <div className="h-12 rounded-[12px] bg-[#F5F0EB]" />
+                              <div className="h-12 rounded-[12px] bg-[#FAF6F1]" />
+                              <div className="h-12 rounded-[12px] bg-[#F5F0EB]" />
                             </div>
                           </div>
                         </div>
@@ -817,8 +817,8 @@ export default function Home() {
                             <div className="h-2.5 w-14 rounded-full bg-[#e7ddd3]" />
                             <div className="mt-3 space-y-2">
                               <div className="h-2 rounded-full bg-white/14" />
-                              <div className="h-2 rounded-full bg-white/10" />
-                              <div className="h-2 w-4/5 rounded-full bg-white/10" />
+                              <div className="h-2 rounded-full bg-[#F5F0EB]" />
+                              <div className="h-2 w-4/5 rounded-full bg-[#F5F0EB]" />
                             </div>
                           </div>
                           <div className="mt-3 grid gap-3">
@@ -827,13 +827,13 @@ export default function Home() {
                               style={{ backgroundColor: `${item.accent}1f` }}
                             >
                               <div className="h-2.5 w-16 rounded-full bg-[#e7ddd3]" />
-                              <div className="mt-3 h-10 rounded-[12px] bg-white/10" />
+                              <div className="mt-3 h-10 rounded-[12px] bg-[#F5F0EB]" />
                             </div>
                             <div className="rounded-[18px] bg-white/80 p-3">
                               <div className="h-2.5 w-10 rounded-full bg-[#e7ddd3]" />
                               <div className="mt-3 grid grid-cols-2 gap-2">
-                                <div className="h-8 rounded-[12px] bg-white/10" />
-                                <div className="h-8 rounded-[12px] bg-white/10" />
+                                <div className="h-8 rounded-[12px] bg-[#F5F0EB]" />
+                                <div className="h-8 rounded-[12px] bg-[#F5F0EB]" />
                               </div>
                             </div>
                           </div>
@@ -919,7 +919,7 @@ export default function Home() {
           {plans.map((plan, index) => (
             <Reveal key={plan.name} delay={index * 0.08}>
               <article
-                className={`rounded-[32px] p-[1px] ${plan.featured ? "bg-gradient-to-br from-[#D97706] via-[#B8602C] to-[#C89B6D] shadow-[0_18px_36px_rgba(140,120,100,0.12)]" : "bg-white/10"}`}
+                className={`rounded-[32px] p-[1px] ${plan.featured ? "bg-gradient-to-br from-[#D97706] via-[#B8602C] to-[#C89B6D] shadow-[0_18px_36px_rgba(140,120,100,0.12)]" : "bg-[#F5F0EB]"}`}
               >
                 <div className="soft-card flex h-full flex-col rounded-[31px] p-8">
                   <div className="flex items-center justify-between">
@@ -959,7 +959,7 @@ export default function Home() {
         </div>
         <Reveal delay={0.12}>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-white/82 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-[#F7F2EC]2 px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-[#9A6A42]">
                   ✓ 결과 미달 시 100% 재작업
@@ -968,7 +968,7 @@ export default function Home() {
                 만족 가능한 방향이 나올 때까지 핵심 구조를 다시 다듬습니다.
               </p>
             </div>
-            <div className="rounded-[24px] border border-primary/20 bg-white/82 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-primary/20 bg-[#F7F2EC]2 px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-primary">
                   ✓ 납기 지연 최소화
@@ -977,7 +977,7 @@ export default function Home() {
                 자료 전달이 끝나면 일정표 기준으로 빠르게 제작을 진행합니다.
               </p>
             </div>
-            <div className="rounded-[24px] border border-accent/20 bg-white/82 px-6 py-5 text-center">
+            <div className="rounded-[24px] border border-accent/20 bg-[#F7F2EC]2 px-6 py-5 text-center">
               <p className="text-sm text-muted-foreground">
                 <span className="font-bold text-accent">
                   ✓ 3분 무료 견적 접수
@@ -1080,7 +1080,7 @@ export default function Home() {
                 ];
                 return (
                   <Reveal key={item.label} delay={index * 0.04}>
-                    <div className="rounded-[24px] border border-border bg-white/82 px-4 py-5">
+                    <div className="rounded-[24px] border border-border bg-[#F7F2EC]2 px-4 py-5">
                       <Icon
                         className="h-5 w-5"
                         style={{ color: accents[index] }}
@@ -1162,7 +1162,7 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href={KAKAO_URL}
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-accent/20 bg-[#f8efe7] px-5 text-sm font-bold text-foreground shadow-[0_0_24px_rgba(255,0,255,0.18)]"
+                    className="inline-flex h-12 items-center justify-center rounded-full border border-accent/20 bg-[#f8efe7] px-5 text-sm font-bold text-foreground shadow-[0_0_24px_rgba(184,96,44,0.12)]"
                   >
                     문의 폼으로 바로 이동
                   </a>
