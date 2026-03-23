@@ -156,14 +156,18 @@ const portfolio = [
 const plans = [
   {
     name: "STANDARD",
-    price: "99,000원",
+    price: "49,000원",
+    originalPrice: "99,000원",
+    discount: "50%",
     duration: "3일",
     featured: false,
     features: ["1페이지", "2회 수정", "모바일 반응형", "기본 SEO"],
   },
   {
     name: "DELUXE",
-    price: "890,000원",
+    price: "490,000원",
+    originalPrice: "890,000원",
+    discount: "45%",
     duration: "7일",
     featured: true,
     features: [
@@ -176,7 +180,9 @@ const plans = [
   },
   {
     name: "PREMIUM",
-    price: "2,490,000원",
+    price: "1,490,000원",
+    originalPrice: "2,490,000원",
+    discount: "40%",
     duration: "14-30일",
     featured: false,
     features: [
@@ -515,9 +521,14 @@ export default function Home() {
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div>
                 <Reveal>
-                  <div className="section-chip border-primary/20 text-primary">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    법률 · 세무 · 스타트업 전용
+                  <div className="flex flex-col items-start gap-3">
+                    <div className="rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-600 shadow-sm">
+                      🎉 런칭 기념 최대 50% 할인 — 선착순 5팀 한정
+                    </div>
+                    <div className="section-chip border-primary/20 text-primary">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      법률 · 세무 · 스타트업 전용
+                    </div>
                   </div>
                 </Reveal>
                 <Reveal delay={0.06}>
@@ -894,7 +905,14 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.24em] text-primary">
                 Velox DELUXE
               </p>
-              <p className="mt-4 text-3xl font-black">89만원</p>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="text-sm text-muted-foreground line-through">89만원</span>
+                <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
+                  런칭 기념 45% 할인
+                </span>
+              </div>
+              <p className="mt-2 text-3xl font-black">49만원</p>
+              <p className="mt-2 text-xs font-semibold text-red-600">선착순 5팀 한정 · 4/30까지</p>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
                 <li>7일 안에 런칭</li>
                 <li>전환 중심 랜딩 구조</li>
@@ -932,8 +950,21 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="display-title mt-6 text-5xl font-black">
+                  {plan.originalPrice && (
+                    <div className="mt-6 flex flex-wrap items-center gap-2">
+                      <span className="text-sm text-muted-foreground line-through">
+                        {plan.originalPrice}
+                      </span>
+                      <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
+                        런칭 기념 {plan.discount} 할인
+                      </span>
+                    </div>
+                  )}
+                  <p className="display-title mt-2 text-5xl font-black">
                     {plan.price}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-red-600">
+                    선착순 5팀 한정 · 4/30까지
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     납기 {plan.duration}
