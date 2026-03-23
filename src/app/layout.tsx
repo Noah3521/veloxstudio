@@ -31,6 +31,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Velox Studio | 고객이 먼저 연락해오는 웹사이트, 7일 안에",
     description:
