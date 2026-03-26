@@ -32,7 +32,7 @@ import {
 import { Reveal } from "@/components/reveal";
 
 const SITE_URL = "https://veloxstudio.co";
-const KAKAO_URL = "#contact";
+const KAKAO_URL = "https://open.kakao.com/o/s8t59Nmi";
 const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/hello@veloxstudio.co";
 const CONTACT_EMAIL = "hello@veloxstudio.co";
 
@@ -40,20 +40,19 @@ const navigation = [
   { label: "특장점", href: "#usp", id: "usp" },
   { label: "서비스", href: "#services", id: "services" },
   { label: "포트폴리오", href: "#portfolio", id: "portfolio" },
-  { label: "블로그", href: "/blog", id: "blog" },
   { label: "가격", href: "#pricing", id: "pricing" },
   { label: "FAQ", href: "#faq", id: "faq" },
   { label: "문의", href: "#contact", id: "contact" },
 ];
 
-const heroLines = ["법률·세무·스타트업 전용 웹사이트,", "7일 안에 런칭"];
+const heroLines = ["인스타·카카오·예약정보를 한 페이지로,", "첫 홈페이지 49,000원부터"];
 
 const uspItems = [
   {
     icon: Rocket,
     title: "7일 안에 런칭",
     description:
-      "AI 설계와 빠른 제작 프로세스로 스타트업의 속도에 맞춰 움직입니다.",
+      "인스타, 카카오, 예약 링크에 흩어진 정보를 정리해 1인샵도 빠르게 첫 홈페이지를 열 수 있게 돕습니다.",
     accent: "#D97706",
   },
   {
@@ -74,7 +73,7 @@ const uspItems = [
     icon: Zap,
     title: "전환 중심 구조",
     description:
-      "멋만 있는 사이트가 아니라 문의·상담·미팅으로 이어지는 CTA 동선을 설계합니다.",
+      "예쁘기만 한 화면이 아니라 카카오 상담·예약 문의로 자연스럽게 이어지는 흐름을 설계합니다.",
     accent: "#D97706",
   },
 ];
@@ -84,21 +83,21 @@ const services = [
     title: "Landing Launch",
     subtitle: "1페이지 임팩트 런치",
     description:
-      "신제품 소개, MVP 검증, 광고 유입 전환에 적합한 고속 런칭 패키지.",
-    points: ["메시지 구조 설계", "강한 CTA 흐름", "모바일 최적화"],
+      "첫 홈페이지가 필요한 1인샵·소규모 업장이 가장 가볍게 시작할 수 있는 1페이지 패키지.",
+    points: ["한 페이지 구조 설계", "카카오 · 예약 CTA", "모바일 최적화"],
   },
   {
     title: "Brand Site",
     subtitle: "브랜드를 설명하는 다층형 웹사이트",
     description:
-      "서비스, 강점, 사례, 신뢰 신호를 한 흐름으로 묶는 4~5페이지 구성.",
-    points: ["서비스 구조화", "프리미엄 UI", "SEO 기본 탑재"],
+      "메뉴, 가격, 위치, 예약 방법, 후기까지 차분하게 정리하는 4~5페이지 구성.",
+    points: ["메뉴 · 가격 정보 정리", "프리미엄 UI", "SEO 기본 탑재"],
   },
   {
     title: "Growth Platform",
     subtitle: "확장 가능한 프리미엄 구축",
     description:
-      "런칭 이후 콘텐츠 확장, 포트폴리오 축적, 운영까지 고려한 고급 패키지.",
+      "브랜드 확장, 프로그램 소개, 포트폴리오 축적까지 고려한 확장형 패키지.",
     points: ["다페이지 구조", "무제한 수정", "운영 연계"],
   },
 ];
@@ -106,6 +105,7 @@ const services = [
 const portfolio = [
   {
     name: "PulseStack",
+    url: "https://velox-portfolio-saas.pages.dev",
     tag: "AI SaaS",
     desc: "대시보드형 SaaS 랜딩 구조를 미니 프로덕트 UI로 시각화해 제품 신뢰도를 즉시 전달하는 런치 페이지.",
     accent: "#D97706",
@@ -118,6 +118,7 @@ const portfolio = [
   },
   {
     name: "Nova Legal",
+    url: "https://velox-portfolio-legal.pages.dev",
     tag: "Law / Advisory",
     desc: "전문가 프로필, 상담 플로우, 신뢰 지표를 조합한 법률·자문형 고급 상담 사이트 레이아웃.",
     accent: "#B8602C",
@@ -130,6 +131,7 @@ const portfolio = [
   },
   {
     name: "Orbit Commerce",
+    url: "https://velox-portfolio-commerce.pages.dev",
     tag: "D2C / Tech",
     desc: "상품 하이라이트와 베네핏 블록, 구매 유도 섹션을 결합한 커머스형 브랜드 페이지 구성.",
     accent: "#6B8F60",
@@ -142,6 +144,7 @@ const portfolio = [
   },
   {
     name: "NeonGrid",
+    url: "https://velox-portfolio-startup.pages.dev",
     tag: "Startup Studio",
     desc: "포트폴리오·팀·파트너십 블록이 살아있는 투자사/스튜디오형 메인 페이지 시안.",
     accent: "#9B6DB0",
@@ -238,7 +241,7 @@ const techStack = [
 const faqs = [
   {
     q: "정말 7일 안에 가능한가요?",
-    a: "DELUXE 기준으로 자료 전달과 방향 확정이 빠르면 7일 안에 충분히 가능합니다. 법률·세무·스타트업처럼 메시지가 명확한 업종일수록 더 빠르게 진행됩니다.",
+    a: "네. 자료 전달과 방향 확정이 빠르면 DELUXE 기준 7일 안에 충분히 가능합니다. 인스타, 카카오, 예약 링크처럼 이미 운영 중인 채널이 있으면 더 빠르게 정리할 수 있습니다.",
   },
   {
     q: "왜 일반 외주보다 저렴하거나 빠를 수 있나요?",
@@ -249,8 +252,8 @@ const faqs = [
     a: "100% 재작업 보장을 제공합니다. 방향이 맞지 않거나 기대 결과에 미달하면 핵심 메시지·구조·비주얼을 다시 조정해 만족 가능한 상태까지 책임지고 수정합니다.",
   },
   {
-    q: "법률/세무처럼 신뢰가 중요한 업종에도 어울리나요?",
-    a: "네. 실제 제작 시 과한 연출 대신 권위감 있는 타이포, 상담 흐름, 후기·보장·전문성 뱃지를 중심으로 톤을 맞춥니다. 현재 페이지는 온화한 웜 라이트모드 데모이며 업종별로 강도를 조절합니다.",
+    q: "1인샵이나 소규모 예약형 업장에 잘 맞나요?",
+    a: "네. 네일샵, 필라테스, 공방, 에스테틱, 상담형 소규모 업장처럼 예약과 첫인상이 중요한 업종에 특히 잘 맞습니다. 과한 연출보다 차분한 신뢰감과 예약 동선을 중심으로 톤을 맞춥니다.",
   },
   {
     q: "SEO와 문의 전환 세팅도 포함되나요?",
@@ -269,6 +272,8 @@ const faqs = [
 type ContactFormState = {
   name: string;
   contact: string;
+  website: string;
+  plan: string;
 };
 
 function validateForm(values: ContactFormState) {
@@ -276,6 +281,9 @@ function validateForm(values: ContactFormState) {
   if (!values.name.trim()) errors.name = "이름을 입력해주세요.";
   if (!values.contact.trim()) {
     errors.contact = "연락처 또는 이메일을 입력해주세요.";
+  }
+  if (!values.website.trim()) {
+    errors.website = "웹사이트 URL, 인스타그램 또는 예약 링크를 입력해주세요.";
   }
   return errors;
 }
@@ -346,7 +354,12 @@ function TypeHeadline() {
 export default function Home() {
   const [activeSection, setActiveSection] = useState("usp");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [form, setForm] = useState<ContactFormState>({ name: "", contact: "" });
+  const [form, setForm] = useState<ContactFormState>({
+    name: "",
+    contact: "",
+    website: "",
+    plan: "",
+  });
   const [errors, setErrors] = useState<
     Partial<Record<keyof ContactFormState, string>>
   >({});
@@ -402,7 +415,7 @@ export default function Home() {
           name: form.name,
           contact: form.contact,
           message: `빠른 무료 견적 요청\n이름: ${form.name}\n연락처: ${form.contact}`,
-          _subject: `[Velox Studio] 무료 견적 요청 - ${form.name}`,
+          _subject: `[Velox Studio] 첫 홈페이지 문의 - ${form.name}`,
           _template: "table",
           _captcha: "false",
         }),
@@ -410,9 +423,9 @@ export default function Home() {
 
       if (!response.ok) throw new Error("submit failed");
 
-      setForm({ name: "", contact: "" });
+      setForm({ name: "", contact: "", website: "", plan: "" });
       setSuccess(
-        "무료 견적 요청이 접수되었습니다. 보통 24시간 안에 범위·예산·납기를 정리해 연락드립니다.",
+        "무료 홈페이지 진단 요청이 접수되었습니다. 보통 24시간 안에 첫 홈페이지 구성 방향과 개선 포인트를 정리해 회신드립니다.",
       );
     } catch {
       setSubmitError(
@@ -421,6 +434,21 @@ export default function Home() {
     } finally {
       setSubmitting(false);
     }
+  }
+
+
+
+  function selectPlan(planName: string) {
+    setForm((prev) => ({ ...prev, plan: planName }));
+    setErrors((prev) => ({ ...prev }));
+
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    window.setTimeout(() => {
+      const field = document.getElementById("plan-field") as HTMLInputElement | null;
+      field?.focus();
+    }, 350);
   }
 
   const schema = {
@@ -528,7 +556,7 @@ export default function Home() {
                     </div>
                     <div className="section-chip border-primary/20 text-primary">
                       <Sparkles className="h-3.5 w-3.5" />
-                      법률 · 세무 · 스타트업 전용
+                      1인샵 · 소규모 예약형 업장에 최적화
                     </div>
                   </div>
                 </Reveal>
@@ -539,9 +567,10 @@ export default function Home() {
                 </Reveal>
                 <Reveal delay={0.12}>
                   <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-                    고객이 처음 5초 안에 “믿을 만하다, 문의해보고 싶다”를 느끼게
-                    만드는 랜딩 페이지를 제작합니다. 법률·세무·스타트업의 신뢰와
-                    속도를 동시에 살리는 구조를 7일 안에 완성합니다.
+                    인스타그램, 카카오톡, 예약 정보를 한 페이지에 정리해
+                    처음 방문한 고객이 바로 이해하고 연락할 수 있게 만듭니다.
+                    첫 홈페이지가 필요한 1인샵·극소규모 업장에 특히 잘 맞는
+                    구조를 7일 안에 완성합니다.
                   </p>
                 </Reveal>
                 <Reveal delay={0.18}>
@@ -555,9 +584,11 @@ export default function Home() {
                     </a>
                     <a
                       href={KAKAO_URL}
-                      className="inline-flex h-14 items-center justify-center rounded-full border border-border bg-white/80 px-7 text-sm font-bold hover:border-accent/35 hover:text-foreground hover:shadow-[0_14px_28px_rgba(140,120,100,0.14)]"
+                      target="_blank"
+                      rel="noopener"
+                      className="inline-flex h-14 items-center justify-center rounded-full border-2 border-[#E2CA00] bg-[#FEE500] px-7 text-sm font-black text-[#181600] shadow-[0_16px_34px_rgba(254,229,0,0.30)] hover:-translate-y-0.5 hover:shadow-[0_20px_38px_rgba(254,229,0,0.36)]"
                     >
-                      이름+연락처만 남기기
+                      💬 카카오톡 상담
                     </a>
                   </div>
                   <div className="mt-5 flex flex-wrap items-center gap-3 text-xs font-semibold text-foreground/80">
@@ -575,9 +606,9 @@ export default function Home() {
                 <Reveal delay={0.24}>
                   <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                     {[
-                      ["12+", "완료 프로젝트"],
-                      ["7일", "평균 런칭"],
-                      ["0원", "월 호스팅비"],
+                      ["49,000원~", "첫 홈페이지 시작가"],
+                      ["7일", "평균 완성"],
+                      ["1페이지", "예약 정보 집중 정리"],
                       ["24시간", "1차 견적 회신"],
                     ].map(([value, label]) => (
                       <div
@@ -600,8 +631,8 @@ export default function Home() {
                 <div className="relative rounded-[28px] border border-border bg-white/80 p-4 soft-card">
                   <div className="rounded-[24px] border border-border bg-white p-4">
                     <div className="flex items-center justify-between border-b border-border pb-3 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                      <span>실전 랜딩 미리보기</span>
-                      <span>상담 전환형 구조</span>
+                      <span>첫 홈페이지 미리보기</span>
+                      <span>예약 전환형 구조</span>
                     </div>
                     <div className="space-y-4 pt-4">
                       <div className="h-3 w-24 rounded-full bg-primary/70" />
@@ -616,7 +647,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="absolute -right-5 -top-5 rounded-full border border-accent/25 bg-[#f8efe7] px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-accent shadow-[0_10px_24px_rgba(140,120,100,0.12)]">
-                    Warm UI
+                    Small Shop Fit
                   </div>
                 </div>
               </Reveal>
@@ -641,16 +672,16 @@ export default function Home() {
                 USP
               </div>
               <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
-                빠르고, 강하고, 기억에 남는
+                처음 만드는 홈페이지도
                 <span className="block text-muted-foreground">
-                  웹사이트를 위한 네 가지 기준.
+                  부담 없이 잘 시작하는 네 가지 기준.
                 </span>
               </h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-muted-foreground">
-              레퍼런스 리서치에서 추린 핵심은 명확했습니다. 이 콘셉트는
-              스타트업과 테크 브랜드가 원하는 속도감, 에너지, 현대성을 전면에
-              드러냅니다.
+              1인샵과 극소규모 업장은 복잡한 사이트보다, 고객이 필요한 정보를
+              한 번에 보고 바로 연락할 수 있는 구조가 더 중요합니다. Velox는 그
+              핵심만 깔끔하게 정리해 첫 홈페이지의 부담을 낮춥니다.
             </p>
           </div>
         </Reveal>
@@ -692,7 +723,7 @@ export default function Home() {
               서비스
             </div>
             <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
-              정제된 구조로, 서비스도 명확하게.
+              작은 업장에 맞는 구조로, 필요한 정보만 선명하게.
             </h2>
           </div>
         </Reveal>
@@ -736,12 +767,12 @@ export default function Home() {
                 포트폴리오
               </div>
               <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
-                실제 결과물처럼 보이는 UI 목업 포트폴리오.
+                업장별로 바로 떠올릴 수 있는 홈페이지 예시.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-muted-foreground md:text-base">
-              각 프로젝트 카드 안에 미니 웹사이트 레이아웃을 직접 시각화해, 첫
-              화면에서 어떤 완성도를 만드는지 바로 체감할 수 있게 구성했습니다.
+              뷰티샵, 공방, 필라테스, 네일샵처럼 예약형 소규모 업장이 어떤 식으로
+              정보를 정리하면 좋은지 한눈에 감을 잡을 수 있게 구성했습니다.
             </p>
           </div>
         </Reveal>
@@ -753,7 +784,12 @@ export default function Home() {
                 className="group soft-card overflow-hidden rounded-[30px] p-4"
               >
                 <div className="rounded-[24px] border border-border bg-white p-4 transition group-hover:shadow-[0_0_0_1px_rgba(184,96,44,0.12),0_0_42px_rgba(184,96,44,0.10)]">
-                  <div className="rounded-[22px] border border-border bg-gradient-to-br from-white/5 via-transparent to-transparent p-4">
+                  <a
+                    href={item.url}
+                    target={item.url.startsWith("http") ? "_blank" : undefined}
+                    rel={item.url.startsWith("http") ? "noopener" : undefined}
+                    className="block rounded-[22px] border border-border bg-gradient-to-br from-white/5 via-transparent to-transparent p-4 transition hover:-translate-y-0.5"
+                  >
                     <div className="mb-3 flex items-center justify-between">
                       <span className="inline-flex rounded-full border border-border bg-white/80 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-foreground/70">
                         {item.badge}
@@ -852,7 +888,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                   <div className="mt-5">
                     <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
                       {item.tag}
@@ -863,163 +899,21 @@ export default function Home() {
                     <p className="mt-3 text-sm leading-7 text-muted-foreground">
                       {item.desc}
                     </p>
+                    <a
+                      href={item.url}
+                      target={item.url.startsWith("http") ? "_blank" : undefined}
+                      rel={item.url.startsWith("http") ? "noopener" : undefined}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent"
+                    >
+                      {item.url.startsWith("http") ? "실제 라이브 사이트 보기" : "라이브 링크 준비 중"}
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
                   </div>
                 </div>
               </motion.article>
             </Reveal>
           ))}
         </div>
-      </section>
-
-      <section id="pricing" className="container-shell py-24 md:py-28">
-        <Reveal>
-          <div className="text-center">
-            <div className="section-chip border-accent/20 text-accent">
-              가격
-            </div>
-            <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
-              비용은 투명하게, ROI는 더 분명하게.
-            </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
-              일반적인 외주 제작은 기획·디자인·개발이 분리되어 일정과 비용이
-              커집니다. Velox Studio는 한 흐름으로 압축해 더 빠르게 런칭하고,
-              상담/미팅 전환을 먼저 만드는 데 집중합니다.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.06}>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            <div className="soft-card rounded-[28px] p-6 text-left">
-              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                일반 외주
-              </p>
-              <p className="mt-4 text-3xl font-black text-foreground/90">
-                150만~500만원+
-              </p>
-              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-                <li>느린 일정 조율</li>
-                <li>기획/디자인/개발 분리</li>
-                <li>수정 왕복 비용 발생</li>
-              </ul>
-            </div>
-            <div className="soft-card rounded-[28px] border border-primary/20 p-6 text-left shadow-[0_16px_32px_rgba(140,120,100,0.10)]">
-              <p className="text-xs uppercase tracking-[0.24em] text-primary">
-                Velox DELUXE
-              </p>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="text-sm text-muted-foreground line-through">89만원</span>
-                <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
-                  런칭 기념 45% 할인
-                </span>
-              </div>
-              <p className="mt-2 text-3xl font-black">49만원</p>
-              <p className="mt-2 text-xs font-semibold text-red-600">선착순 5팀 한정 · 4/30까지</p>
-              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-                <li>7일 안에 런칭</li>
-                <li>전환 중심 랜딩 구조</li>
-                <li>Cloudflare 배포 + 기본 SEO</li>
-              </ul>
-            </div>
-            <div className="soft-card rounded-[28px] p-6 text-left">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#9A6A42]">
-                예상 효과
-              </p>
-              <p className="mt-4 text-3xl font-black text-[#9A6A42]">
-                상담 1~2건만 늘어도 회수 가능
-              </p>
-              <p className="mt-5 text-sm leading-7 text-muted-foreground">
-                평균 객단가가 높은 법률·세무·B2B 서비스는 신규 문의 1~2건
-                증가만으로도 제작비 회수 가능성이 높습니다.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {plans.map((plan, index) => (
-            <Reveal key={plan.name} delay={index * 0.08}>
-              <article
-                className={`rounded-[32px] p-[1px] ${plan.featured ? "bg-gradient-to-br from-[#D97706] via-[#B8602C] to-[#C89B6D] shadow-[0_18px_36px_rgba(140,120,100,0.12)]" : "bg-[#F5F0EB]"}`}
-              >
-                <div className="soft-card flex h-full flex-col rounded-[31px] p-8">
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-bold tracking-[0.18em] text-muted-foreground">
-                      {plan.name}
-                    </p>
-                    {plan.featured && (
-                      <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-black">
-                        추천
-                      </span>
-                    )}
-                  </div>
-                  {plan.originalPrice && (
-                    <div className="mt-6 flex flex-wrap items-center gap-2">
-                      <span className="text-sm text-muted-foreground line-through">
-                        {plan.originalPrice}
-                      </span>
-                      <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
-                        런칭 기념 {plan.discount} 할인
-                      </span>
-                    </div>
-                  )}
-                  <p className="display-title mt-2 text-5xl font-black">
-                    {plan.price}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold text-red-600">
-                    선착순 5팀 한정 · 4/30까지
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    납기 {plan.duration}
-                  </p>
-                  <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3">
-                        <span className="h-2 w-2 rounded-full bg-primary shadow-[0_6px_14px_rgba(140,120,100,0.14)]" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="#contact"
-                    className={`mt-10 inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-black ${plan.featured ? "bg-primary text-white" : "border border-border bg-white/80 text-foreground hover:border-primary/35"}`}
-                  >
-                    {plan.name} 문의하기
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.12}>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-secondary px-6 py-5 text-center">
-              <p className="text-sm text-muted-foreground">
-                <span className="font-bold text-[#9A6A42]">
-                  ✓ 결과 미달 시 100% 재작업
-                </span>
-                <br />
-                만족 가능한 방향이 나올 때까지 핵심 구조를 다시 다듬습니다.
-              </p>
-            </div>
-            <div className="rounded-[24px] border border-primary/20 bg-secondary px-6 py-5 text-center">
-              <p className="text-sm text-muted-foreground">
-                <span className="font-bold text-primary">
-                  ✓ 납기 지연 최소화
-                </span>
-                <br />
-                자료 전달이 끝나면 일정표 기준으로 빠르게 제작을 진행합니다.
-              </p>
-            </div>
-            <div className="rounded-[24px] border border-accent/20 bg-secondary px-6 py-5 text-center">
-              <p className="text-sm text-muted-foreground">
-                <span className="font-bold text-accent">
-                  ✓ 3분 무료 견적 접수
-                </span>
-                <br />
-                이름과 연락처만 남기면 빠르게 범위와 예산을 안내합니다.
-              </p>
-            </div>
-          </div>
-        </Reveal>
       </section>
 
       <section id="testimonials" className="container-shell py-24 md:py-28">
@@ -1029,15 +923,15 @@ export default function Home() {
               후기
             </div>
             <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
-              후기는 조용하지만, 신뢰는 강하게 남습니다.
+              작은 업장도, 홈페이지 하나로 인상이 달라집니다.
             </h2>
           </div>
         </Reveal>
         <div className="mt-8 flex flex-wrap gap-3">
           {[
-            "Next.js 15",
-            "Cloudflare Pages",
-            "SEO 기본 탑재",
+            "첫 홈페이지 49,000원부터",
+            "7일 완성",
+            "카카오 CTA 유지",
             "모바일 최적화",
           ].map((badge) => (
             <span
@@ -1080,6 +974,258 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section id="free-diagnosis" className="container-shell py-24 md:py-28">
+        <Reveal>
+          <div className="rounded-[34px] border border-[#E8D8C8] bg-gradient-to-br from-[#FFF8F1] via-[#FFFDF8] to-[#F8EFE7] p-[1px] shadow-[0_24px_60px_rgba(190,120,56,0.10)]">
+            <div className="mesh-panel rounded-[33px] px-6 py-8 md:px-10 md:py-12">
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                  <div className="section-chip border-primary/20 text-primary">
+                    무료 홈페이지 진단 받기
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+                    <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-primary">
+                      24시간 내 회신
+                    </span>
+                    <span className="rounded-full border border-[#C89B6D]/25 bg-[#FFF4E8] px-3 py-1 text-[#9A6A42]">
+                      문제 3가지 + 개선점 3가지
+                    </span>
+                    <span className="rounded-full border border-[#E2CA00]/50 bg-[#FEE500] px-3 py-1 text-[#181600]">
+                      사이트 없는 1인샵도 가능
+                    </span>
+                  </div>
+                  <h2 className="display-title mt-6 text-4xl font-black leading-tight md:text-6xl">
+                    홈페이지가 아직 없거나 약해도, 지금 어디서부터 시작하면 좋을지 무료로 정리해드립니다
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                    인스타그램, 카카오 채널, 예약 링크만 있어도 괜찮습니다. 지금 보이는 정보만 기준으로 첫 홈페이지에 꼭 들어가야 할 내용과 개선 포인트를 24시간 안에 정리해드립니다.
+                  </p>
+                  <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                    {[
+                      "인스타 · 카카오 · 예약정보 정리 포인트",
+                      "첫 화면 메시지 · 신뢰 요소 점검",
+                      "첫 홈페이지 구성 추천",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[24px] border border-white/70 bg-white/80 px-5 py-5 text-sm font-semibold text-foreground shadow-[0_10px_24px_rgba(140,120,100,0.08)]"
+                      >
+                        <span className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          ✓
+                        </span>
+                        <p className="leading-6">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[30px] border border-[#E8D8C8] bg-white/88 p-6 shadow-[0_18px_40px_rgba(140,120,100,0.10)]">
+                  <p className="text-sm font-bold tracking-[0.18em] text-[#9A6A42]">FREE DIAGNOSIS</p>
+                  <h3 className="mt-4 text-2xl font-black text-foreground md:text-3xl">
+                    상담 전에, 지금 있는 채널만으로도 방향부터 잡아보세요.
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                    긴 미팅 없이도 가능합니다. 사이트가 없어도 인스타, 카카오, 예약 링크만 보내주시면 실전형 피드백으로 바로 방향을 잡아드립니다.
+                  </p>
+                  <div className="mt-6 space-y-3 rounded-[24px] border border-primary/15 bg-[#FFF8F0] p-5 text-sm text-foreground/85">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2.5 w-2.5 rounded-full bg-primary" />
+                      <p>첫 화면에 무엇을 넣어야 예약 문의가 쉬워지는지 함께 봅니다.</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2.5 w-2.5 rounded-full bg-[#B8602C]" />
+                      <p>인스타·카카오·예약 정보를 어떻게 한 페이지로 묶을지 구체적으로 짚어드립니다.</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 h-2.5 w-2.5 rounded-full bg-[#C89B6D]" />
+                      <p>무료 진단 후 원하실 때만 제작 상담으로 이어가시면 됩니다.</p>
+                    </div>
+                  </div>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="#contact"
+                      className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-black text-white shadow-[0_14px_30px_rgba(140,120,100,0.16)] hover:-translate-y-0.5"
+                    >
+                      첫 홈페이지 상담하기
+                    </a>
+                    <a
+                      href={KAKAO_URL}
+                      target="_blank"
+                      rel="noopener"
+                      className="inline-flex h-12 items-center justify-center rounded-full border-2 border-[#E2CA00] bg-[#FEE500] px-5 text-sm font-black text-[#181600] shadow-[0_14px_30px_rgba(254,229,0,0.26)] hover:-translate-y-0.5"
+                    >
+                      카카오로 URL 보내기
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="pricing" className="container-shell py-24 md:py-28">
+        <Reveal>
+          <div className="text-center">
+            <div className="section-chip border-accent/20 text-accent">
+              가격
+            </div>
+            <div className="mx-auto mt-5 inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-600 shadow-sm">
+              <span>🔥 현재 2자리 남음</span>
+              <span className="hidden text-red-300 sm:inline">•</span>
+              <span>선착순 5팀 런칭 프로모션</span>
+            </div>
+            <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
+              첫 홈페이지는 가볍게 시작하고, 인상은 가볍지 않게.
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
+              처음부터 큰 사이트를 만들 필요는 없습니다. Velox Studio는 첫
+              홈페이지에 꼭 필요한 구조만 정리해 빠르게 오픈하고, 예약 문의가
+              바로 이어질 수 있는 동선부터 만듭니다.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            <div className="soft-card rounded-[28px] p-6 text-left">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                일반 외주
+              </p>
+              <p className="mt-4 text-3xl font-black text-foreground/90">
+                100만~수백만원
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li>첫 홈페이지치고 부담 큰 견적</li>
+                <li>일정이 길고 준비 자료가 많음</li>
+                <li>작은 업장엔 과한 구성 제안</li>
+              </ul>
+            </div>
+            <div className="soft-card rounded-[28px] border border-primary/20 p-6 text-left shadow-[0_16px_32px_rgba(140,120,100,0.10)]">
+              <p className="text-xs uppercase tracking-[0.24em] text-primary">
+                Velox START / DELUXE
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="text-sm text-muted-foreground line-through">89만원</span>
+                <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
+                  런칭 기념 45% 할인
+                </span>
+              </div>
+              <p className="mt-2 text-3xl font-black">49만원</p>
+              <p className="mt-2 text-xs font-semibold text-red-600">선착순 5팀 한정 · 4/30까지</p>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li>49,000원부터 시작 가능</li>
+                <li>7일 안에 완성</li>
+                <li>인스타 · 카카오 · 예약 링크 정리</li>
+              </ul>
+            </div>
+            <div className="soft-card rounded-[28px] p-6 text-left">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#9A6A42]">
+                예상 효과
+              </p>
+              <p className="mt-4 text-3xl font-black text-[#9A6A42]">
+                첫인상과 예약 동선만 정리돼도 체감이 큽니다
+              </p>
+              <p className="mt-5 text-sm leading-7 text-muted-foreground">
+                1인샵과 소규모 업장은 고객이 필요한 정보를 빠르게 찾고 연락할 수
+                있게 만드는 것만으로도 체감 차이가 큽니다. 비싼 구축보다 먼저,
+                잘 정리된 첫 페이지가 중요합니다.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {plans.map((plan, index) => (
+            <Reveal key={plan.name} delay={index * 0.08}>
+              <article
+                className={`rounded-[32px] p-[1px] ${plan.featured ? "bg-gradient-to-br from-[#D97706] via-[#B8602C] to-[#C89B6D] shadow-[0_18px_36px_rgba(140,120,100,0.12)]" : "bg-[#F5F0EB]"}`}
+              >
+                <div className="soft-card flex h-full flex-col rounded-[31px] p-8">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-bold tracking-[0.18em] text-muted-foreground">
+                      {plan.name}
+                    </p>
+                    <span className="rounded-full border border-red-200 bg-red-50 px-3 py-1 text-[11px] font-black text-red-600">
+                      선착순 5팀
+                    </span>
+                    {plan.featured && (
+                      <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-black">
+                        추천
+                      </span>
+                    )}
+                  </div>
+                  {plan.originalPrice && (
+                    <div className="mt-6 flex flex-wrap items-center gap-2">
+                      <span className="text-sm text-muted-foreground line-through">
+                        {plan.originalPrice}
+                      </span>
+                      <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">
+                        런칭 기념 {plan.discount} 할인
+                      </span>
+                    </div>
+                  )}
+                  <p className="display-title mt-2 text-5xl font-black">
+                    {plan.price}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold text-red-600">
+                    선착순 5팀 한정 · 4/30까지
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    납기 {plan.duration}
+                  </p>
+                  <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <span className="h-2 w-2 rounded-full bg-primary shadow-[0_6px_14px_rgba(140,120,100,0.14)]" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    type="button"
+                    onClick={() => selectPlan(plan.name)}
+                    className={`mt-10 inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-black ${plan.featured ? "bg-primary text-white" : "border border-border bg-white/80 text-foreground hover:border-primary/35"}`}
+                  >
+                    {plan.name} 문의하기
+                  </button>
+                  <p className="mt-3 text-xs text-accent font-semibold">🔥 현재 2자리 남음</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.12}>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="rounded-[24px] border border-[#C89B6D]/22 bg-secondary px-6 py-5 text-center">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-bold text-[#9A6A42]">
+                  ✓ 결과 미달 시 100% 재작업
+                </span>
+                <br />
+                만족 가능한 방향이 나올 때까지 핵심 구조를 다시 다듬습니다.
+              </p>
+            </div>
+            <div className="rounded-[24px] border border-primary/20 bg-secondary px-6 py-5 text-center">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-bold text-primary">
+                  ✓ 납기 지연 최소화
+                </span>
+                <br />
+                자료 전달이 끝나면 일정표 기준으로 빠르게 제작을 진행합니다.
+              </p>
+            </div>
+            <div className="rounded-[24px] border border-accent/20 bg-secondary px-6 py-5 text-center">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-bold text-accent">
+                  ✓ 3분 무료 견적 접수
+                </span>
+                <br />
+                이름과 연락처만 남기면 빠르게 범위와 예산을 안내합니다.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <section id="tech-stack" className="container-shell py-24 md:py-28">
@@ -1158,6 +1304,37 @@ export default function Home() {
         </Reveal>
       </section>
 
+      <section className="container-shell pb-6">
+        <Reveal>
+          <div className="rounded-[30px] border border-[#E8D8C8] bg-gradient-to-r from-[#FFF8F0] via-[#FFFCF7] to-[#F8EFE7] px-6 py-6 shadow-[0_16px_38px_rgba(140,120,100,0.08)] md:px-8">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p className="text-sm font-black tracking-[0.18em] text-[#9A6A42]">FREE DIAGNOSIS CTA</p>
+                <h3 className="mt-2 text-2xl font-black text-foreground md:text-3xl">
+                  홈페이지 URL만 보내주시면, 24시간 안에 핵심 문제 3가지와 개선점 3가지를 드립니다.
+                </h3>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#contact"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-black text-white"
+                >
+                  첫 홈페이지 상담하기
+                </a>
+                <a
+                  href={KAKAO_URL}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex h-12 items-center justify-center rounded-full border-2 border-[#E2CA00] bg-[#FEE500] px-5 text-sm font-black text-[#181600]"
+                >
+                  카카오로 URL 보내기
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       <section id="contact" className="container-shell py-24 md:py-28">
         <Reveal>
           <div className="mesh-panel soft-card rounded-[34px] px-6 py-8 md:px-10 md:py-12">
@@ -1172,31 +1349,32 @@ export default function Home() {
                 </div>
                 <div className="mt-4 flex flex-wrap gap-3 text-xs font-semibold text-foreground/80">
                   <span className="rounded-full border border-[#C89B6D]/30 bg-[#C89B6D]/10 px-3 py-1 text-[#9A6A42]">
-                    3분 안에 무료 견적 접수
+                    24시간 내 무료 진단 회신
                   </span>
                   <span className="rounded-full border border-border bg-white/80 px-3 py-1">
-                    이름 + 연락처만 입력
+                    문제 3가지 + 개선점 3가지
                   </span>
                   <span className="rounded-full border border-border bg-white/80 px-3 py-1">
-                    100% 재작업 보장
+                    웹사이트 URL만 보내도 시작 가능
                   </span>
                 </div>
                 <h2 className="display-title mt-5 text-4xl font-black md:text-6xl">
                   지금 시작하면,
                   <span className="block text-muted-foreground">
-                    이번 주 안에 사이트가 달라집니다.
+                    이번 주 안에 첫 홈페이지를 열 수 있습니다.
                   </span>
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground">
-                  지금은 긴 브리프가 필요 없습니다. 이름과 연락처만 남겨주시면
-                  범위·예산·납기를 정리한 무료 견적을 빠르게 드립니다.
+                  사이트가 아직 없어도 괜찮습니다. 이름과 연락처, 인스타그램 또는 예약 링크만 남겨주시면 24시간 안에 첫 홈페이지 구성과 개선 포인트를 정리해드립니다.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href={KAKAO_URL}
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-accent/20 bg-[#f8efe7] px-5 text-sm font-bold text-foreground shadow-[0_0_24px_rgba(184,96,44,0.12)]"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex h-12 items-center justify-center rounded-full border-2 border-[#E2CA00] bg-[#FEE500] px-5 text-sm font-black text-[#181600] shadow-[0_14px_30px_rgba(254,229,0,0.26)] hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(254,229,0,0.34)]"
                   >
-                    문의 폼으로 바로 이동
+                    💬 카카오톡 상담
                   </a>
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
@@ -1215,14 +1393,30 @@ export default function Home() {
               >
                 <div className="mb-5 rounded-[22px] border border-primary/20 bg-primary/10 p-4 text-sm text-foreground/90">
                   <p className="font-bold text-primary">
-                    3분 안에 무료 견적 접수
+                    무료 홈페이지 진단 접수
                   </p>
                   <p className="mt-2 text-muted-foreground">
-                    입력은 이름과 연락처만 받습니다. 접수 후 24시간 안에
-                    범위·예산·납기를 정리해 안내드립니다.
+                    사이트가 없으면 인스타그램, 카카오 채널, 예약 링크를 보내주셔도 됩니다. 접수 후 24시간 안에 첫 홈페이지 구성과 개선 포인트를 정리해 안내드립니다.
                   </p>
                 </div>
                 <div className="grid gap-4">
+                  <label className="grid gap-2 text-sm" htmlFor="plan-field">
+                    <span>문의 유형</span>
+                    <select
+                      id="plan-field"
+                      aria-label="문의 유형"
+                      value={form.plan}
+                      onChange={(e) =>
+                        setForm((prev) => ({ ...prev, plan: e.target.value }))
+                      }
+                      className="h-12 rounded-2xl border border-primary/20 bg-primary/10 px-4 font-semibold text-foreground"
+                    >
+                      <option value="">선택해주세요</option>
+                      <option value="무료 홈페이지 진단">무료 홈페이지 진단</option>
+                      <option value="DELUXE">DELUXE</option>
+                      <option value="PREMIUM">PREMIUM</option>
+                    </select>
+                  </label>
                   <label className="grid gap-2 text-sm" htmlFor="name">
                     <span>이름 *</span>
                     <input
@@ -1245,6 +1439,37 @@ export default function Home() {
                         role="alert"
                       >
                         {errors.name}
+                      </span>
+                    )}
+                  </label>
+                  <label className="grid gap-2 text-sm" htmlFor="website-field">
+                    <span>웹사이트 URL / 인스타 / 예약 링크 *</span>
+                    <input
+                      id="website-field"
+                      aria-label="웹사이트 URL"
+                      required
+                      aria-invalid={Boolean(errors.website)}
+                      aria-describedby={errors.website ? "website-error" : undefined}
+                      value={form.website}
+                      onChange={(e) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          website: e.target.value,
+                        }))
+                      }
+                      className="h-12 rounded-2xl border border-border bg-white/80 px-4"
+                      placeholder="사이트가 없으면 인스타그램 또는 예약 링크를 남겨주세요"
+                    />
+                    <span className="text-xs text-muted-foreground">
+                      사이트가 아직 없어도 인스타그램, 카카오 채널, 예약 링크 중 하나만 보내주시면 됩니다.
+                    </span>
+                    {errors.website && (
+                      <span
+                        id="website-error"
+                        className="text-sm text-[#b94a48]"
+                        role="alert"
+                      >
+                        {errors.website}
                       </span>
                     )}
                   </label>
@@ -1283,7 +1508,7 @@ export default function Home() {
                     disabled={submitting}
                     className="inline-flex h-12 items-center justify-center rounded-full bg-primary text-sm font-black text-white shadow-[0_12px_28px_rgba(140,120,100,0.14)] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    {submitting ? "전송 중..." : "무료 견적 받기"}
+                    {submitting ? "전송 중..." : "무료 진단 요청하기"}
                   </button>
                   {success && (
                     <p className="text-sm text-[#9A6A42]">{success}</p>
@@ -1303,8 +1528,8 @@ export default function Home() {
           <div>
             <BrandMark />
             <p className="mt-4 max-w-md text-sm leading-7 text-muted-foreground">
-              Velox Studio는 빠른 제작, 강한 첫인상, 운영 효율까지 함께 설계하는
-              AI 기반 웹 에이전시입니다.
+              Velox Studio는 1인샵과 극소규모 업장이 첫 홈페이지를 부담 없이
+              시작할 수 있도록, 빠른 제작과 정돈된 첫인상을 함께 설계합니다.
             </p>
           </div>
           <div className="grid gap-2 text-sm text-muted-foreground md:text-right">
@@ -1317,6 +1542,14 @@ export default function Home() {
             >
               {CONTACT_EMAIL}
             </a>
+            <a
+              href={KAKAO_URL}
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-[#7A6500] hover:text-foreground"
+            >
+              카카오톡 상담
+            </a>
           </div>
         </div>
       </footer>
@@ -1325,15 +1558,17 @@ export default function Home() {
         <div className="mx-auto flex max-w-[1280px] gap-3">
           <a
             href={KAKAO_URL}
-            className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-border bg-white/80 text-sm font-bold"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex h-12 flex-1 items-center justify-center rounded-full border-2 border-[#E2CA00] bg-[#FEE500] text-sm font-black text-[#181600] shadow-[0_12px_26px_rgba(254,229,0,0.28)]"
           >
-            이름만 남기기
+            💬 카카오톡 상담
           </a>
           <a
             href="#contact"
             className="inline-flex h-12 flex-1 items-center justify-center rounded-full bg-primary text-sm font-black text-white"
           >
-            3분 무료 견적
+            첫 홈페이지 상담
           </a>
         </div>
       </div>
