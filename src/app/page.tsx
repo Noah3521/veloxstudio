@@ -40,6 +40,7 @@ const navigation = [
   { label: "특장점", href: "#usp", id: "usp" },
   { label: "서비스", href: "#services", id: "services" },
   { label: "포트폴리오", href: "#portfolio", id: "portfolio" },
+  { label: "블로그", href: "/blog", id: "blog" },
   { label: "가격", href: "#pricing", id: "pricing" },
   { label: "FAQ", href: "#faq", id: "faq" },
   { label: "문의", href: "#contact", id: "contact" },
